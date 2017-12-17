@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Infirmière">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Voir les infirmières" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Médecin">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Voir les médecins" />
+                  <MenuItem mnemonicParsing="false" text="Voir les externes" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Patient">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Voir les patients" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Documents">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Dossiers de patients" />
+                  <MenuItem mnemonicParsing="false" text="Plans de soins" />
+                  <MenuItem mnemonicParsing="false" text="Surveillance de plaies" />
+                  <MenuItem mnemonicParsing="false" text="Evaluation du résultat du traitement" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Recherche">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Recherche" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
