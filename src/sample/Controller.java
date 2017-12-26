@@ -1,5 +1,6 @@
 package sample;
 
+import GUI.ControlerSignUpView;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -27,10 +29,17 @@ public class Controller implements Initializable{
     private JFXButton buttonLogin;
 
     @FXML
-    private JFXPasswordField fieldPassword;
+    private JFXTextField fieldUserNameLogin;
 
     @FXML
-    private JFXTextField fieldUserName;
+    private JFXPasswordField fieldPasswordLogin;
+
+    @FXML
+    private Label labelWrong;
+
+    @FXML
+    private JFXButton buttonSignUp;
+
 
 
     @Override
@@ -39,17 +48,21 @@ public class Controller implements Initializable{
     }
 
     public void addActionLogin(ActionEvent actionEvent) throws IOException {
-        if(fieldUserName.getText().equals("admin") && fieldPassword.getText().equals("admin")) {
+        if(fieldUserNameLogin.getText().equals("admin") && fieldPasswordLogin.getText().equals("admin")) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
-        Parent root = (Parent) loader.load();
-        paneLogin.getChildren().setAll(root);
+            Parent root = (Parent) loader.load();
+            paneLogin.getChildren().setAll(root);
         }else{
-            JOptionPane.showMessageDialog(null,"Wrong user name or password");
+            labelWrong.setText("Le nom d'utilisateur ou le mot de passe est incorrect");
         }
-
     }
 
-
+    @FXML
+    void addActionSignUp(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/signUpView.fxml"));
+        Parent root = (Parent) loader.load();
+        paneLogin.getChildren().setAll(root);
+    }
 
 
 
