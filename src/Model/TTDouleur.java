@@ -3,11 +3,19 @@ package Model;
 public class TTDouleur {
     private int id;
     private boolean pousseSeringue;
-    private int ecartPatch;
+    private float ecartPatch;
     private boolean sc;
     private boolean im;
 
     public TTDouleur(){}
+
+    public TTDouleur(int id, boolean pousseSeringue, float ecartPatch, boolean sc, boolean im) {
+        this.id = id;
+        this.pousseSeringue = pousseSeringue;
+        this.ecartPatch = ecartPatch;
+        this.sc = sc;
+        this.im = im;
+    }
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -15,8 +23,8 @@ public class TTDouleur {
     public boolean getPousseSeringue() { return pousseSeringue; }
     public void setPousseSeringue(boolean pousseSeringue) { this.pousseSeringue = pousseSeringue; }
 
-    public int getEcartPatch() { return ecartPatch; }
-    public void setEcartPatch(int ecartPatch) { this.ecartPatch = ecartPatch; }
+    public float getEcartPatch() { return ecartPatch; }
+    public void setEcartPatch(float ecartPatch) { this.ecartPatch = ecartPatch; }
 
     public boolean getSc() { return sc; }
     public void setSc(boolean sc) { this.sc = sc; }

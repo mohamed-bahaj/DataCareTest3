@@ -3,7 +3,7 @@ package Model;
 /**
  * City contains informations to define a city
  */
-public class City {
+public class    City {
     /**
      * Id of a city, use as a key in a database
      */
@@ -17,21 +17,18 @@ public class City {
      */
     private String name;
 
+    private String country;
+
     /**
      * Default constructor, define no argument
      */
     public City(){}
 
-    /**
-     * Constructor to define all arguments of a city
-     * @param id Initial id of a city
-     * @param postalCode initial postalCode of a city
-     * @param name initial name of a city
-     */
-    public City(int id, int postalCode, String name) {
+    public City(int id, int postalCode, String name, String country) {
         this.id = id;
         this.postalCode = postalCode;
         this.name = name;
+        this.country = country;
     }
 
     /**
@@ -69,4 +66,12 @@ public class City {
      * @param name new name of a city
      */
     public void setName(String name) { this.name = name; }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 }

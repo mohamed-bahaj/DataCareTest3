@@ -13,6 +13,18 @@ public class Assistance {
 
     public Assistance(){}
 
+    public Assistance(int id, boolean toilet, boolean alimentation, boolean medication, boolean preparationMD, boolean eliminations, boolean anatomicProtections, boolean frictions, boolean sticking) {
+        this.id = id;
+        this.toilet = toilet;
+        this.alimentation = alimentation;
+        this.medication = medication;
+        this.preparationMD = preparationMD;
+        this.eliminations = eliminations;
+        this.anatomicProtections = anatomicProtections;
+        this.frictions = frictions;
+        this.sticking = sticking;
+    }
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

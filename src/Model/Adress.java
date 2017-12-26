@@ -20,18 +20,38 @@ public class Adress {
     /**
      * Default constructor defines no argument
      */
+    private String box;
+
+    private int idVille;
+
     public Adress(){}
-    /**
-     * Constructor to define all arguments of an adress
-     * @param id initial id
-     * @param street initial street
-     * @param number initial number
-     */
-    public Adress(int id, String street, int number) {
+
+    public Adress(int id, String street, int number, String box, int idVille) {
+
         this.id = id;
         this.street = street;
         this.number = number;
+        this.box = box;
+        this.idVille = idVille;
     }
+
+    public String getBox() {
+        return box;
+    }
+
+    public void setBox(String box) {
+        this.box = box;
+    }
+
+    public int getIdVille() {
+        return idVille;
+    }
+
+    public void setIdVille(int idVille) {
+        this.idVille = idVille;
+    }
+
+
 
     /**
      * Get adress id

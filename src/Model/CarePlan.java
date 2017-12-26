@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Date;
+
 /**
  *CarePlan define a care performed on a patient
  */
@@ -11,7 +13,7 @@ public class CarePlan {
     /**
      * Date of care
      */
-    private int date;
+    private Date date;
     /**
      * Comment add to a care
      */
@@ -20,18 +22,24 @@ public class CarePlan {
     /**
      * Default constructor define no argument
      */
+    private String injection;
+    private int idPerfusion;
+    private int idAssistance;
+    private int idWoundSurveillance;
+    private int idTTDouleur;
+    private int nurseInami;
     public CarePlan(){}
 
-    /**
-     * Constructor define all argument of a CarePlan
-     * @param id
-     * @param date
-     * @param comment
-     */
-    public CarePlan(int id, int date, String comment) {
+    public CarePlan(int id, Date date, String comment, String injection, int idPerfusion, int idAssistance, int idWoundSurveillance, int idTTDouleur, int nurseInami) {
         this.id = id;
         this.date = date;
         this.comment = comment;
+        this.injection = injection;
+        this.idPerfusion = idPerfusion;
+        this.idAssistance = idAssistance;
+        this.idWoundSurveillance = idWoundSurveillance;
+        this.idTTDouleur = idTTDouleur;
+        this.nurseInami = nurseInami;
     }
 
     /**
@@ -50,13 +58,13 @@ public class CarePlan {
      * Get date of a CarePlan
      * @return date of the CarePlan
      */
-    public int getDate() { return date; }
+    public Date getDate() { return date; }
 
     /**
      * Set date of a CarePlan
      * @param date new date of a CarePlan
      */
-    public void setDate(int date) { this.date = date; }
+    public void setDate(Date date) { this.date = date; }
 
     /**
      * Get comment of a CarePlan
@@ -69,4 +77,52 @@ public class CarePlan {
      * @param comment New comment of a Careplan
      */
     public void setComment(String comment) { this.comment = comment; }
+
+    public String getInjection() {
+        return injection;
+    }
+
+    public void setInjection(String injection) {
+        this.injection = injection;
+    }
+
+    public int getIdPerfusion() {
+        return idPerfusion;
+    }
+
+    public void setIdPerfusion(int idPerfusion) {
+        this.idPerfusion = idPerfusion;
+    }
+
+    public int getIdAssistance() {
+        return idAssistance;
+    }
+
+    public void setIdAssistance(int idAssistance) {
+        this.idAssistance = idAssistance;
+    }
+
+    public int getIdWoundSurveillance() {
+        return idWoundSurveillance;
+    }
+
+    public void setIdWoundSurveillance(int idWoundSurveillance) {
+        this.idWoundSurveillance = idWoundSurveillance;
+    }
+
+    public int getIdTTDouleur() {
+        return idTTDouleur;
+    }
+
+    public void setIdTTDouleur(int idTTDouleur) {
+        this.idTTDouleur = idTTDouleur;
+    }
+
+    public int getNurseInami() {
+        return nurseInami;
+    }
+
+    public void setNurseInami(int nurseInami) {
+        this.nurseInami = nurseInami;
+    }
 }

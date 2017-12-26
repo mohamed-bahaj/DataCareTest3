@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Date;
+
 /**
  * ResponsiblePerson defines a responsible person of a patient if it is not himself
  */
@@ -19,25 +21,21 @@ public class ResponsiblePerson {
     /**
      * Birthday of a responsiblePerson
      */
-    private int birthday;
+    private Date birthday;
+
+    private int idPatient;
 
     /**
      * Default constructor, defines no arguments
      */
     public ResponsiblePerson(){}
 
-    /**
-     * Constructor defines all arguments of a responsiblePerson
-     * @param id
-     * @param name
-     * @param surname
-     * @param birthday
-     */
-    public ResponsiblePerson(int id, String name, String surname, int birthday) {
+    public ResponsiblePerson(int id, String name, String surname, Date birthday, int idPatient) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
+        this.idPatient = idPatient;
     }
 
     /**
@@ -80,11 +78,19 @@ public class ResponsiblePerson {
      * Get birthday of a responsiblePerson
      * @return responsiblePerson birthday
      */
-    public int getBirthday() { return birthday; }
+    public Date getBirthday() { return birthday; }
 
     /**
      * Set birthday of a responsiblePerson
      * @param birthday new responsiblePerson birthday
      */
-    public void setBirthday(int birthday) { this.birthday = birthday; }
+    public void setBirthday(Date birthday) { this.birthday = birthday; }
+
+    public int getIdPatient() {
+        return idPatient;
+    }
+
+    public void setIdPatient(int idPatient) {
+        this.idPatient = idPatient;
+    }
 }

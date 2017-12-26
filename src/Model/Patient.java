@@ -1,21 +1,24 @@
 package Model;
 
+import java.util.Date;
+
 public class Patient {
     private int id;
     private String name;
     private String surname;
     private boolean gender;
-    private int birthday;
+    private Date birthday;
     private int phoneNumber;
     private boolean typeCare;  // plaies ou diabète
     private String medicalBackGround;
     private String diet;
     private String familySituation;
     private String dependance;
+    private int idAdress;
 
     public Patient(){}
 
-    public Patient(int id, String name, String surname, boolean gender, int birthday, int phoneNumber, boolean typeCare, String medicalBackGround, String diet, String familySituation, String dependance) {
+    public Patient(int id, String name, String surname, boolean gender, Date birthday, int phoneNumber, boolean typeCare, String medicalBackGround, String diet, String familySituation, String dependance, int idAdress) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -27,6 +30,7 @@ public class Patient {
         this.diet = diet;
         this.familySituation = familySituation;
         this.dependance = dependance;
+        this.idAdress = idAdress;
     }
 
     public int getId() { return id; }
@@ -38,11 +42,8 @@ public class Patient {
     public String getSurname() { return surname; }
     public void setSurname(String surname) { this.surname = surname; }
 
-    public boolean getGender() { return gender; }
-    public void setGender(boolean gender) { this.gender = gender; }
-
-    public int getBirthday() { return birthday; }
-    public void setBirthday(int birthday) { this.birthday = birthday; }
+    public Date getBirthday() { return birthday; }
+    public void setBirthday(Date birthday) { this.birthday = birthday; }
 
     public int getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(int phoneNumber) { this.phoneNumber = phoneNumber; }
@@ -61,4 +62,20 @@ public class Patient {
 
     public String getDependance() { return dependance; }
     public void setDependance(String dependance) { this.dependance = dependance; }
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public boolean isTypeCare() {
+        return typeCare;
+    }
+
+    public int getIdAdress() {
+        return idAdress;
+    }
+
+    public void setIdAdress(int idAdress) {
+        this.idAdress = idAdress;
+    }
 }

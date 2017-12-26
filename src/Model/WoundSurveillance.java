@@ -2,6 +2,8 @@ package Model;
 
 public class WoundSurveillance {
     private int id;
+    private String site;
+    private String type;
     private boolean rougeur;
     private boolean fibrine;
     private boolean necrose;
@@ -18,45 +20,150 @@ public class WoundSurveillance {
 
     public WoundSurveillance(){}
 
-    public int getId(){ return id; }
-    public void setId(int id){ this.id = id; }
+    public WoundSurveillance(int id, String site, String type, boolean rougeur, boolean fibrine, boolean necrose, boolean exsudats, boolean pus, boolean odeurs, boolean inflammation, boolean macerees, boolean oedematiees, boolean bourgeons, boolean epidermistion, int evnScore, String comment) {
+        this.id = id;
+        this.site = site;
+        this.type = type;
+        this.rougeur = rougeur;
+        this.fibrine = fibrine;
+        this.necrose = necrose;
+        this.exsudats = exsudats;
+        this.pus = pus;
+        this.odeurs = odeurs;
+        this.inflammation = inflammation;
+        this.macerees = macerees;
+        this.oedematiees = oedematiees;
+        this.bourgeons = bourgeons;
+        this.epidermistion = epidermistion;
+        this.evnScore = evnScore;
+        this.comment = comment;
+    }
 
-    public boolean getRougeur() { return rougeur; }
-    public void setRougeur(boolean rougeur) { this.rougeur = rougeur; }
+    public int getId() {
+        return id;
+    }
 
-    public boolean getFibrine() { return fibrine; }
-    public void setFibrine(boolean fibrine) { this.fibrine = fibrine; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public boolean getNecrose() { return necrose; }
-    public void setNecrose(boolean necrose) { this.necrose = necrose; }
+    public String getSite() {
+        return site;
+    }
 
-    public boolean getExsudats() { return exsudats; }
-    public void setExsudats(boolean exsudats) { this.exsudats = exsudats; }
+    public void setSite(String site) {
+        this.site = site;
+    }
 
-    public boolean getPus() { return pus; }
-    public void setPus(boolean pus) { this.pus = pus; }
+    public String getType() {
+        return type;
+    }
 
-    public boolean getOdeurs() { return odeurs; }
-    public void setOdeurs(boolean odeurs) { this.odeurs = odeurs; }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-    public boolean getInflammation() { return inflammation; }
-    public void setInflammation(boolean inflammation) { this.inflammation = inflammation; }
+    public boolean isRougeur() {
+        return rougeur;
+    }
 
-    public boolean getMacerees() { return macerees; }
-    public void setMacerees(boolean macerees) { this.macerees = macerees; }
+    public void setRougeur(boolean rougeur) {
+        this.rougeur = rougeur;
+    }
 
-    public boolean getOedematiees() { return oedematiees; }
-    public void setOedematiees(boolean oedematiees) { this.oedematiees = oedematiees; }
+    public boolean isFibrine() {
+        return fibrine;
+    }
 
-    public boolean getBourgeons() { return bourgeons; }
-    public void setBourgeons(boolean bourgeons) { this.bourgeons = bourgeons; }
+    public void setFibrine(boolean fibrine) {
+        this.fibrine = fibrine;
+    }
 
-    public boolean getEpidermistion() { return epidermistion; }
-    public void setEpidermistion(boolean epidermistion) { this.epidermistion = epidermistion; }
+    public boolean isNecrose() {
+        return necrose;
+    }
 
-    public int getEvnScore() { return evnScore; }
-    public void setEvnScore(int evnScore) { this.evnScore = evnScore; }
+    public void setNecrose(boolean necrose) {
+        this.necrose = necrose;
+    }
 
-    public String getComment() { return comment; }
-    public void setComment(String comment) { this.comment = comment; }
+    public boolean isExsudats() {
+        return exsudats;
+    }
+
+    public void setExsudats(boolean exsudats) {
+        this.exsudats = exsudats;
+    }
+
+    public boolean isPus() {
+        return pus;
+    }
+
+    public void setPus(boolean pus) {
+        this.pus = pus;
+    }
+
+    public boolean isOdeurs() {
+        return odeurs;
+    }
+
+    public void setOdeurs(boolean odeurs) {
+        this.odeurs = odeurs;
+    }
+
+    public boolean isInflammation() {
+        return inflammation;
+    }
+
+    public void setInflammation(boolean inflammation) {
+        this.inflammation = inflammation;
+    }
+
+    public boolean isMacerees() {
+        return macerees;
+    }
+
+    public void setMacerees(boolean macerees) {
+        this.macerees = macerees;
+    }
+
+    public boolean isOedematiees() {
+        return oedematiees;
+    }
+
+    public void setOedematiees(boolean oedematiees) {
+        this.oedematiees = oedematiees;
+    }
+
+    public boolean isBourgeons() {
+        return bourgeons;
+    }
+
+    public void setBourgeons(boolean bourgeons) {
+        this.bourgeons = bourgeons;
+    }
+
+    public boolean isEpidermistion() {
+        return epidermistion;
+    }
+
+    public void setEpidermistion(boolean epidermistion) {
+        this.epidermistion = epidermistion;
+    }
+
+    public int getEvnScore() {
+        return evnScore;
+    }
+
+    public void setEvnScore(int evnScore) {
+        this.evnScore = evnScore;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
