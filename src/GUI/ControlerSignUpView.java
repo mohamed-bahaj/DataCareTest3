@@ -45,8 +45,8 @@ public class ControlerSignUpView implements Initializable {
     @FXML
     private JFXPasswordField fieldPassword2SignUp;
 
-    @FXML
-    private JFXButton buttonSignUpConfirm;
+    /*@FXML
+    private JFXButton buttonSignUpConfirm;*/
 
     @FXML
     private Label labelWrong2;
