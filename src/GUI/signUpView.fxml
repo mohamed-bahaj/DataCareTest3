@@ -8,10 +8,14 @@
 
 <AnchorPane fx:id="paneSignUp" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControlerSignUpView">
    <children>
-      <JFXTextField fx:id="fieldEmailSignUp" focusColor="#2d3447" layoutX="193.0" layoutY="188.0" prefHeight="25.0" prefWidth="215.0" promptText="Email" />
-      <JFXPasswordField fx:id="fieldPasswordSignUp" focusColor="#2d3447" layoutX="193.0" layoutY="235.0" prefHeight="25.0" prefWidth="215.0" promptText="Mot de passe" />
+      <JFXTextField fx:id="fieldInami" layoutX="193.0" layoutY="31.0" prefHeight="25.0" prefWidth="215.0" promptText="INAMI" />
+      <JFXTextField fx:id="fieldName" layoutX="193.0" layoutY="74.0" prefHeight="25.0" prefWidth="215.0" promptText="Nom" />
+      <JFXTextField fx:id="fieldLastName" layoutX="193.0" layoutY="114.0" prefHeight="25.0" prefWidth="215.0" promptText="Prénom" />
+      <JFXTextField fx:id="fieldStatut" layoutX="193.0" layoutY="156.0" prefHeight="25.0" prefWidth="215.0" promptText="Statut" />
+      <JFXTextField fx:id="fieldEmailSignUp" focusColor="#2d3447" layoutX="193.0" layoutY="200.0" prefHeight="25.0" prefWidth="215.0" promptText="Email" />
+      <JFXPasswordField fx:id="fieldPasswordSignUp" focusColor="#2d3447" layoutX="193.0" layoutY="241.0" prefHeight="25.0" prefWidth="215.0" promptText="Mot de passe" />
       <JFXPasswordField fx:id="fieldPassword2SignUp" focusColor="#2d3447" layoutX="193.0" layoutY="283.0" prefHeight="25.0" prefWidth="215.0" promptText="Confirmer votre mot de passe" />
-      <JFXButton fx:id="buttonSignUpConfirm" buttonType="RAISED" layoutX="193.0" layoutY="337.0" onAction="#addActionLogin2" style="-fx-background-color: #2d3447;" text="Inscription" textFill="#ccb12b" />
       <Label fx:id="labelWrong2" layoutX="193.0" layoutY="369.0" textFill="RED" />
+      <JFXButton fx:id="buttonSignUpConfirm" buttonType="RAISED" layoutX="193.0" layoutY="337.0" onAction="#addActionLogin2" style="-fx-background-color: #2d3447;" text="Inscription" textFill="#ccb12b" />
    </children>
 </AnchorPane>

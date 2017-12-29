@@ -17,7 +17,8 @@ public class Nurse_DAO extends DAO<Nurse> {
 
         try
         {
-            String query = "SELECT * FROM Infirmiere";
+            //String query = "SELECT * FROM Infirmiere";
+            String query = "SELECT * FROM Nurse";
             Statement statement = dbConnect.createStatement();
             ResultSet resultSet;
             resultSet =statement.executeQuery(query);

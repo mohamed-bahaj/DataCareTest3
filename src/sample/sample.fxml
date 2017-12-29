@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="paneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <JFXButton fx:id="buttonLogin" buttonType="RAISED" layoutX="196.0" layoutY="290.0" onAction="#addActionLogin" style="-fx-background-color: #2d3447;" text="Connexion" textFill="#ccb12b" />
+      <Label fx:id="labelWrong" layoutX="196.0" layoutY="327.0" prefHeight="17.0" prefWidth="382.0" textFill="RED" />
       <JFXTextField fx:id="fieldUserNameLogin" focusColor="#2d3447" layoutX="196.0" layoutY="200.0" prefHeight="25.0" prefWidth="208.0" promptText="Email" />
       <JFXPasswordField fx:id="fieldPasswordLogin" focusColor="#2d3447" layoutX="196.0" layoutY="232.0" prefHeight="25.0" prefWidth="208.0" promptText="Mot de passe" />
-      <Label fx:id="labelWrong" layoutX="196.0" layoutY="327.0" prefHeight="17.0" prefWidth="382.0" textFill="RED" />
+      <JFXButton fx:id="buttonLogin" buttonType="RAISED" layoutX="196.0" layoutY="290.0" onAction="#addActionLogin" style="-fx-background-color: #2d3447;" text="Connexion" textFill="#ccb12b" />
       <Label layoutX="260.0" layoutY="51.0" text="Data" textFill="#2d3447">
          <font>
             <Font name="System Bold" size="18.0" />
