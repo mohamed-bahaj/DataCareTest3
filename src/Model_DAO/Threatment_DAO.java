@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Threatment_DAO extends DAO<Threatment> {
 
-    ArrayList<Threatment> list_threatment()
+    /*ArrayList<Threatment> list_threatment()
     {
         ArrayList<Threatment> list = new ArrayList<>();
 
@@ -39,16 +40,17 @@ public class Threatment_DAO extends DAO<Threatment> {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public Threatment read(String id) throws Exception {
+    public List<Threatment> read() {
         return null;
     }
 
     @Override
-    public Threatment create(Threatment obj) throws Exception {
-        return null;
+    public void create(Threatment obj) throws Exception {
+
     }
 
     @Override

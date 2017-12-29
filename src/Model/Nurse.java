@@ -4,10 +4,11 @@ package Model;
  * Nurse class to define a nurse informations
  */
 public class Nurse {
+
     /**
      * Inami number of the nurse
      */
-    private int inamiNumber;
+    private int inami;
     /**
      * Name of the nurse
      */
@@ -15,77 +16,146 @@ public class Nurse {
     /**
      * Surname of the nurse
      */
-    private String surname;
+    private String lastName;
     /**
      * Status in the company
      */
     private String status;
+    /**
+     * Email of the nurse
+     */
+    private String email;
+    /**
+     * Password of the nurse
+     */
+    private String password;
+
+    /**
+     * Constructor, define all arguments of the nurse
+     * @param inami initial Inami
+     * @param name initial name
+     * @param lastName initial lastName
+     * @param status initial status
+     * @param email initial email
+     * @param password initial password
+     */
+    public Nurse(int inami, String name, String lastName, String status, String email, String password) {
+        this.inami = inami;
+        this.name = name;
+        this.lastName = lastName;
+        this.status = status;
+        this.email = email;
+        this.password = password;
+    }
 
     /**
      * Default constructor define no argument
      */
-    public Nurse(){}
-
-    /**
-     * Constructor, define all arguments of the nurse
-     * @param inamiNumber initial Inami number
-     * @param name initial name
-     * @param surname initial surname
-     * @param status initial status
-     */
-    public Nurse(int inamiNumber, String name, String surname, String status) {
-        this.inamiNumber = inamiNumber;
-        this.name = name;
-        this.surname = surname;
-        this.status = status;
+    public Nurse() {
     }
-
 
     /**
      * Get nurse Inami number
      * @return nurse Inami number
      */
-    public int getInamiNumber() { return inamiNumber; }
-
+    public int getInami() {
+        return inami;
+    }
     /**
      * Set nurse Inami number
-     * @param inamiNumber new nurse Inami number
+     * @param inami new nurse Inami number
      */
-    public void setInamiNumber(int inamiNumber) { this.inamiNumber = inamiNumber; }
+    public void setInami(int inami) {this.inami = inami;}
 
     /**
      * Get nurse name
      * @return nurse name
      */
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     /**
      * Set nurse name
      * @param name new nurse name
      */
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
-     * Get nurse surname
-     * @return nurse surname
+     * Get nurse lastName
+     * @return nurse lastName
      */
-    public String getSurname() { return surname; }
+    public String getLastName() {
+        return lastName;
+    }
 
     /**
-     * set nurse surname
-     * @param surname new nurse surname
+     * set nurse lastName
+     * @param lastName new nurse lastName
      */
-    public void setSurname(String surname) { this.surname = surname; }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     /**
      * Get nurse status
      * @return nurse status
      */
-    public String getStatus() { return status; }
+    public String getStatus() {
+        return status;
+    }
 
     /**
      * Set nurse status
      * @param status new nurse status
      */
-    public void setStatus(String status) { this.status = status; }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * Get nurse email
+     * @return nurse email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * Set nurse email
+     * @param email new nurse email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Get nurse password
+     * @return nurse password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Set nurse password
+     * @param password new nurse password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Nurse{" +
+                "inami=" + inami +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", statut='" + status + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

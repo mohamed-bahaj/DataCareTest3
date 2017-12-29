@@ -1,5 +1,7 @@
 package GUI;
 
+import Model.Nurse;
+import Model_DAO.Nurse_DAO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -19,6 +21,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,62 +79,30 @@ public class ControlerSignUpView implements Initializable {
 
     @FXML
     void addActionLogin2(ActionEvent event) throws IOException {
-        if(!fieldEmailSignUp.getText().equals("") && !fieldPasswordSignUp.getText().equals("") && !fieldPassword2SignUp.getText().equals("") && fieldPasswordSignUp.getText().equals(fieldPassword2SignUp.getText())) {
+        if(!fieldEmailSignUp.getText().equals("") && !fieldInami.getText().equals("") && !fieldPasswordSignUp.getText().equals("") && !fieldPassword2SignUp.getText().equals("") && fieldPasswordSignUp.getText().equals(fieldPassword2SignUp.getText())) {
 
-            Connection con = null;
-            PreparedStatement pst = null;
-
-            try {
-
-                int inami = Integer.parseInt(fieldInami.getText());
-                String name = fieldName.getText();
-                String lastname = fieldLastName.getText();
-                String statut = fieldStatut.getText();
-                String email = fieldEmailSignUp.getText();
-                String mdp = fieldPasswordSignUp.getText();
-
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/datacare","java","password");
-
-                pst = con.prepareStatement("INSERT INTO Nurse(Inami,Nom,Prenom,Statut,Email, mdp) VALUES(?,?,?,?,?,?)");
-                pst.setInt(1, inami);
-                pst.setString(2, name);
-                pst.setString(3, lastname);
-                pst.setString(4, statut);
-                pst.setString(5, email);
-                pst.setString(6, mdp);
-                pst.executeUpdate();
-
-            } catch (SQLException ex) {
-
-                Logger lgr = Logger.getLogger(ControlerSignUpView.class.getName());
-                lgr.log(Level.SEVERE, ex.getMessage(), ex);
-
-            } finally {
-
-                try {
-
-                    if (pst != null) {
-                        pst.close();
-                    }
-
-                    if (con != null) {
-                        con.close();
-                    }
-
-                } catch (SQLException ex) {
-
-                    Logger lgr = Logger.getLogger(ControlerSignUpView.class.getName());
-                    lgr.log(Level.SEVERE, ex.getMessage(), ex);
+            Nurse_DAO nurseDao = new Nurse_DAO();
+            List<Nurse> listnurse = nurseDao.read();
+            boolean test = false;
+            for(int i=0;i<listnurse.size();i++){
+                if(fieldEmailSignUp.getText().equals(listnurse.get(i).getEmail()) || fieldInami.getText().equals(""+listnurse.get(i).getInami())){
+                    test=true;
+                    labelWrong2.setText("Ce numéro Inami ou cette adresse email est déjà utilisé.e");
                 }
             }
+            if(test == false) {
+                Nurse nurse = new Nurse(Integer.parseInt(fieldInami.getText()), fieldName.getText(), fieldLastName.getText(), fieldStatut.getText(), fieldEmailSignUp.getText(), fieldPasswordSignUp.getText());
+                nurseDao.create(nurse);
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("sample/sample.fxml"));
+                Parent root = (Parent) loader.load();
+                paneSignUp.getChildren().setAll(root);
+            }
+
 
             /**
             * Data has been sent to database. Now we switch to login window.
              **/
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("sample/sample.fxml"));
-            Parent root = (Parent) loader.load();
-            paneSignUp.getChildren().setAll(root);
         }else{
             if (fieldEmailSignUp.getText().equals("")){
                 labelWrong2.setText("Vous n'avez pas indiqué d'adresse mail");
@@ -145,7 +116,6 @@ public class ControlerSignUpView implements Initializable {
         }
     }
 }
-
 
 
 

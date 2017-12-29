@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ResponsiblePerson_DAO extends DAO<ResponsiblePerson> {
 
-    ArrayList<ResponsiblePerson> list_responsiblePerson()
+    /*ArrayList<ResponsiblePerson> list_responsiblePerson()
     {
         ArrayList<ResponsiblePerson> list = new ArrayList<>();
 
@@ -44,16 +45,17 @@ public class ResponsiblePerson_DAO extends DAO<ResponsiblePerson> {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public ResponsiblePerson read(String id) throws Exception {
+    public List<ResponsiblePerson> read() {
         return null;
     }
 
     @Override
-    public ResponsiblePerson create(ResponsiblePerson obj) throws Exception {
-        return null;
+    public void create(ResponsiblePerson obj) throws Exception {
+
     }
 
     @Override

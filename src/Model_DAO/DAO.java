@@ -1,13 +1,17 @@
 package Model_DAO;
 
+import ConnectionSingleton.ConnectionToDB;
+
 import java.sql.Connection;
+import java.util.List;
 
 public abstract class DAO<T> {
-    protected Connection dbConnect;
-    public void setConnection(Connection dbConnect ){this.dbConnect = dbConnect;}
-    public abstract T read(String id) throws Exception;
-    public abstract T create(T obj) throws Exception;
+    public Connection connect = ConnectionToDB.getInstance();
+    public abstract List<T> read() throws Exception;
+    public abstract void create(T obj) throws Exception;
     public abstract T update(T obj) throws Exception;
     public abstract void delete(T obj) throws Exception;
+
+
 
 }

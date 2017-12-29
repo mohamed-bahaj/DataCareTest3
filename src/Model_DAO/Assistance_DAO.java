@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Assistance_DAO extends DAO<Assistance> {
 
-    public ArrayList<Assistance> list_Assistance()
+    /*public ArrayList<Assistance> list_Assistance()
     {
         ArrayList<Assistance> list_Assistance = new ArrayList<>();
 
@@ -48,16 +49,17 @@ public class Assistance_DAO extends DAO<Assistance> {
         }
 
         return list_Assistance;
-    }
+    }*/
+
 
     @Override
-    public Assistance read(String id) throws Exception {
+    public List<Assistance> read() {
         return null;
     }
 
     @Override
-    public Assistance create(Assistance obj) throws Exception {
-        return null;
+    public void create(Assistance obj) throws Exception {
+
     }
 
     @Override

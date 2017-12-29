@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Extern_DAO extends DAO<Extern>{
 
-    ArrayList<Extern> list_extern()
+    /*ArrayList<Extern> list_extern()
     {
         ArrayList<Extern> list = new ArrayList<>();
 
@@ -42,16 +43,17 @@ public class Extern_DAO extends DAO<Extern>{
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public Extern read(String id) throws Exception {
+    public List<Extern> read() {
         return null;
     }
 
     @Override
-    public Extern create(Extern obj) throws Exception {
-        return null;
+    public void create(Extern obj) throws Exception {
+
     }
 
     @Override

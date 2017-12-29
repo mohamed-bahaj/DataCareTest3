@@ -9,10 +9,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Doctor_DAO extends DAO<Doctor>  {
 
-    ArrayList<Doctor> list_doctor()
+    /*ArrayList<Doctor> list_doctor()
     {
         ArrayList<Doctor> list = new ArrayList<>();
 
@@ -44,16 +45,17 @@ public class Doctor_DAO extends DAO<Doctor>  {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public Doctor read(String id) throws Exception {
+    public List<Doctor> read() {
         return null;
     }
 
     @Override
-    public Doctor create(Doctor obj) throws Exception {
-        return null;
+    public void create(Doctor obj) throws Exception {
+
     }
 
     @Override

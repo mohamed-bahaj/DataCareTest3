@@ -9,10 +9,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CarePlan_DAO extends DAO<CarePlan> {
 
-    ArrayList<CarePlan> list_Care_Plan()
+    /*ArrayList<CarePlan> list_Care_Plan()
     {
         ArrayList<CarePlan> listCarePlan = new ArrayList<>();
         try
@@ -47,16 +48,17 @@ public class CarePlan_DAO extends DAO<CarePlan> {
             e.printStackTrace();
         }
         return listCarePlan;
-    }
+    }*/
+
 
     @Override
-    public CarePlan read(String id) throws Exception {
+    public List<CarePlan> read() {
         return null;
     }
 
     @Override
-    public CarePlan create(CarePlan obj) throws Exception {
-        return null;
+    public void create(CarePlan obj) throws Exception {
+
     }
 
     @Override

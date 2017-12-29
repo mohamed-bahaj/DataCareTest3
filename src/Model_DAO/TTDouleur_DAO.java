@@ -8,10 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TTDouleur_DAO extends DAO<TTDouleur> {
 
-    ArrayList<TTDouleur> list_TTDouleur()
+    /*ArrayList<TTDouleur> list_TTDouleur()
     {
         ArrayList<TTDouleur> list = new ArrayList<>();
 
@@ -44,16 +45,17 @@ public class TTDouleur_DAO extends DAO<TTDouleur> {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public TTDouleur read(String id) throws Exception {
+    public List<TTDouleur> read() {
         return null;
     }
 
     @Override
-    public TTDouleur create(TTDouleur obj) throws Exception {
-        return null;
+    public void create(TTDouleur obj) throws Exception {
+
     }
 
     @Override

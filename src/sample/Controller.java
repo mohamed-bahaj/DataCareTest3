@@ -1,6 +1,8 @@
 package sample;
 
 import GUI.ControlerSignUpView;
+import Model.Nurse;
+import Model_DAO.Nurse_DAO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -19,6 +21,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,63 +53,21 @@ public class Controller implements Initializable{
 
     public void addActionLogin(ActionEvent actionEvent) throws IOException {
 
-        Connection con = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
+        Nurse_DAO nurseDao = new Nurse_DAO();
+        List<Nurse> listnurse = nurseDao.read();
 
-        String url = "jdbc:mysql://localhost:3306/datacare";
-        String user = "java";
-        String password = "password";
-
-        try {
-
-            con = DriverManager.getConnection(url, user, password);
-            pst = con.prepareStatement("SELECT * FROM Nurse");
-            rs = pst.executeQuery();
-
-            while (rs.next()) {
-
-                /*System.out.print(rs.getInt(1));
-                System.out.print(": ");
-                System.out.println(rs.getString(2) + " " + rs.getString(3));*/
-
-                if(fieldUserNameLogin.getText().equals(rs.getString(5)) && fieldPasswordLogin.getText().equals(rs.getString(6))){
-                    labelWrong.setText(null);
-                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
-                    Parent root = (Parent) loader.load();
-                    paneLogin.getChildren().setAll(root);
-                }else{
-                    labelWrong.setText("Le nom d'utilisateur ou le mot de passe sont incorrects");
-                }
-            }
-
-        } catch (SQLException ex) {
-
-            Logger lgr = Logger.getLogger(Controller.class.getName());
-            lgr.log(Level.SEVERE, ex.getMessage(), ex);
-
-        } finally {
-
-            try {
-
-                if (rs != null) {
-                    rs.close();
-                }
-
-                if (pst != null) {
-                    pst.close();
-                }
-
-                if (con != null) {
-                    con.close();
-                }
-
-            } catch (SQLException ex) {
-
-                Logger lgr = Logger.getLogger(Controller.class.getName());
-                lgr.log(Level.WARNING, ex.getMessage(), ex);
+        for(int i=0;i<listnurse.size();i++){
+            if(fieldUserNameLogin.getText().equals(listnurse.get(i).getEmail()) && fieldPasswordLogin.getText().equals(listnurse.get(i).getPassword())){
+                labelWrong.setText(null);
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
+                Parent root = (Parent) loader.load();
+                paneLogin.getChildren().setAll(root);
+            }else {
+                labelWrong.setText("Le nom d'utilisateur ou le mot de passe sont incorrects");
             }
         }
+
+
         fieldPasswordLogin.clear();
         fieldUserNameLogin.clear();
 
@@ -122,9 +83,6 @@ public class Controller implements Initializable{
 
 
 }
-
-
-
 
 
 

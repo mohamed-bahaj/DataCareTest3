@@ -8,10 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ContactPerson_DAO extends DAO<ContactPerson> {
 
-    ArrayList<ContactPerson> list_ContactPerson()
+    /*ArrayList<ContactPerson> list_ContactPerson()
     {
         ArrayList<ContactPerson> list = new ArrayList();
 
@@ -43,16 +44,17 @@ public class ContactPerson_DAO extends DAO<ContactPerson> {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public ContactPerson read(String id) throws Exception {
+    public List<ContactPerson> read() {
         return null;
     }
 
     @Override
-    public ContactPerson create(ContactPerson obj) throws Exception {
-        return null;
+    public void create(ContactPerson obj) throws Exception {
+
     }
 
     @Override

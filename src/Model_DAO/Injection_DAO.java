@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Injection_DAO extends DAO<Injection> {
 
-    ArrayList<Injection> list_injection()
+    /*ArrayList<Injection> list_injection()
     {
         ArrayList<Injection> list = new ArrayList<>();
 
@@ -39,16 +40,17 @@ public class Injection_DAO extends DAO<Injection> {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public Injection read(String id) throws Exception {
+    public List<Injection> read() {
         return null;
     }
 
     @Override
-    public Injection create(Injection obj) throws Exception {
-        return null;
+    public void create(Injection obj) throws Exception {
+
     }
 
     @Override

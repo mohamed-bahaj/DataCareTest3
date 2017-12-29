@@ -8,10 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adress_DAO extends DAO<Adress> {
 
-    public ArrayList<Adress> liste_Adress()
+    /*public ArrayList<Adress> liste_Adress()
     {
         ArrayList<Adress> list_Adress = new ArrayList<>();
 
@@ -43,17 +44,19 @@ public class Adress_DAO extends DAO<Adress> {
         }
 
         return list_Adress;
-    }
+    }*/
+
+
 
 
     @Override
-    public Adress read(String id) throws Exception {
+    public List<Adress> read() {
         return null;
     }
 
     @Override
-    public Adress create(Adress obj) throws Exception {
-        return null;
+    public void create(Adress obj) throws Exception {
+
     }
 
     @Override

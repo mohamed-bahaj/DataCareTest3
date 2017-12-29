@@ -8,10 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WoundSurveillance_DAO extends DAO<WoundSurveillance> {
 
-    ArrayList<WoundSurveillance> list_woundSurveillance()
+    /*ArrayList<WoundSurveillance> list_woundSurveillance()
     {
         ArrayList<WoundSurveillance> list = new ArrayList<>();
 
@@ -55,16 +56,17 @@ public class WoundSurveillance_DAO extends DAO<WoundSurveillance> {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public WoundSurveillance read(String id) throws Exception {
+    public List<WoundSurveillance> read() {
         return null;
     }
 
     @Override
-    public WoundSurveillance create(WoundSurveillance obj) throws Exception {
-        return null;
+    public void create(WoundSurveillance obj) throws Exception {
+
     }
 
     @Override

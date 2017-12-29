@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Perfusion_DAO extends DAO<Perfusion> {
 
-    ArrayList<Perfusion> list_perfusion()
+    /*ArrayList<Perfusion> list_perfusion()
     {
         ArrayList<Perfusion> list = new ArrayList<>();
 
@@ -42,16 +43,17 @@ public class Perfusion_DAO extends DAO<Perfusion> {
         }
 
         return list;
-    }
+    }*/
+
 
     @Override
-    public Perfusion read(String id) throws Exception {
+    public List<Perfusion> read() {
         return null;
     }
 
     @Override
-    public Perfusion create(Perfusion obj) throws Exception {
-        return null;
+    public void create(Perfusion obj) throws Exception {
+
     }
 
     @Override

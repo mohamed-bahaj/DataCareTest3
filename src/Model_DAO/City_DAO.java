@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class City_DAO extends DAO<City> {
 
-    ArrayList<City> list_city()
+    /*ArrayList<City> list_city()
     {
         ArrayList<City> list_city = new ArrayList<>();
 
@@ -42,16 +43,17 @@ public class City_DAO extends DAO<City> {
         }
 
         return list_city;
-    }
+    }*/
+
 
     @Override
-    public City read(String id) throws Exception {
+    public List<City> read() {
         return null;
     }
 
     @Override
-    public City create(City obj) throws Exception {
-        return null;
+    public void create(City obj) throws Exception {
+
     }
 
     @Override

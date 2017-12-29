@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Allergy_DAO extends DAO<Allergy> {
 
-    public ArrayList<Allergy> list_Allergy(){
+    /*public ArrayList<Allergy> list_Allergy(){
         ArrayList<Allergy> list_Allergy = new ArrayList<>();
 
         try
@@ -40,16 +41,17 @@ public class Allergy_DAO extends DAO<Allergy> {
 
 
         return list_Allergy;
-    }
+    }*/
+
 
     @Override
-    public Allergy read(String id) throws Exception {
+    public List<Allergy> read() {
         return null;
     }
 
     @Override
-    public Allergy create(Allergy obj) throws Exception {
-        return null;
+    public void create(Allergy obj) throws Exception {
+
     }
 
     @Override

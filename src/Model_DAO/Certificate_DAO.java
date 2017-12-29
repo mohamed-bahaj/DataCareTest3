@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Certificate_DAO extends DAO<Certificate> {
 
-    ArrayList<Certificate> list_certificate()
+    /*ArrayList<Certificate> list_certificate()
     {
         ArrayList<Certificate> list_certificate = new ArrayList<>();
 
@@ -47,16 +48,16 @@ public class Certificate_DAO extends DAO<Certificate> {
         }
 
         return list_certificate;
-    }
+    }*/
 
     @Override
-    public Certificate read(String id) throws Exception {
+    public List<Certificate> read() {
         return null;
     }
 
     @Override
-    public Certificate create(Certificate obj) throws Exception {
-        return null;
+    public void create(Certificate obj) throws Exception {
+
     }
 
     @Override
