@@ -3,11 +3,13 @@ package GUI;
 import Model.Nurse;
 import Model_DAO.Nurse_DAO;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -16,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -40,14 +43,32 @@ public class ControlerMainView implements Initializable {
 
         borderPaneMainView.setCenter(listViewNurse);
 
-
-        //listViewNurse.getSelectionModel().getSelectedItems().addListener(new );
         listViewNurse.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                listViewNurse.getSelectionModel().getSelectedItems();
+                listViewNurse.getSelectionModel().getSelectedItem().getText();
+                borderPaneMainView.setCenter(null);
+                for(int i=0;i<listnurse.size();i++){
+                    if((listnurse.get(i).getInami() +"  "+ listnurse.get(i).getName() +"  "+ listnurse.get(i).getLastName()).equals(listViewNurse.getSelectionModel().getSelectedItem().getText())){
+                        System.out.println(listnurse.get(i).getInami());
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/NurseView.fxml"));
+                        Parent root = null;
+                        try {
+                            root = (Parent) loader.load();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ControlerNurseView nurseControler =  (ControlerNurseView) loader.getController();
+                        nurseControler.setText(listnurse.get(i).getInami(),listnurse.get(i).getName(),listnurse.get(i).getLastName(),listnurse.get(i).getEmail(),listnurse.get(i).getStatus());
+                        borderPaneMainView.getChildren().setAll(root);
+
+
+                    }
+                }
             }
         });
+
     }
 
 

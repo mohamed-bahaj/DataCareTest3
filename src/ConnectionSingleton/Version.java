@@ -17,8 +17,8 @@ public class Version {
         ResultSet rs = null;
 
         String url = "jdbc:mysql://localhost:3306/datacare";
-        String user = "root";
-        String password = "ltaPMP124@";
+        String user = "java";
+        String password = "password";
 
         try {
 
