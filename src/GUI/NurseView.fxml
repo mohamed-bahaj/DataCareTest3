@@ -6,38 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneNurse" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControlerNurseView">
+<AnchorPane fx:id="anchorPaneNurse" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControlerNurseView">
    <children>
       <JFXTextField fx:id="fieldInami" focusColor="#2d3447" layoutX="122.0" layoutY="48.0" AnchorPane.topAnchor="48.0" />
       <JFXTextField fx:id="fieldNom" focusColor="#2d3447" layoutX="122.0" layoutY="73.0" AnchorPane.topAnchor="98.0" />
       <JFXTextField fx:id="fieldPrénom" focusColor="#2d3447" layoutX="122.0" layoutY="149.0" AnchorPane.topAnchor="148.0" />
       <JFXTextField fx:id="fieldEmail" focusColor="#2d3447" layoutX="122.0" layoutY="200.0" AnchorPane.topAnchor="198.0" />
       <JFXTextField fx:id="fieldStatut" focusColor="#2d3447" layoutX="122.0" layoutY="258.0" AnchorPane.topAnchor="248.0" />
-      <Label fx:id="labelInami" layoutX="70.0" layoutY="51.0" text="INAMI" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="55.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelNom" layoutX="79.0" layoutY="101.0" text="Nom" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="105.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelPrénom" layoutX="66.0" layoutY="151.0" text="Prénom" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="151.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelEmail" layoutX="72.0" layoutY="215.0" text="Email" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="205.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelStatut" layoutX="81.0" layoutY="265.0" text="Statut" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="255.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
       <JFXButton fx:id="buttonSave" layoutX="334.0" layoutY="63.0" onAction="#addActionSave" style="-fx-background-color: #2d3447;" text="Enregistrer les modifications" textFill="#ccb12b">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -58,5 +33,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <Label layoutX="75.0" layoutY="55.0" text="INAMI" />
+      <Label layoutX="79.0" layoutY="107.0" text="Nom" />
+      <Label layoutX="65.0" layoutY="152.0" text="Prénom" />
+      <Label layoutX="78.0" layoutY="202.0" text="Email" />
+      <Label layoutX="76.0" layoutY="252.0" text="Statut" />
    </children>
 </AnchorPane>
