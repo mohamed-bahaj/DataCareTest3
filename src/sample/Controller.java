@@ -1,5 +1,6 @@
 package sample;
 
+import GUI.ControlerMainView;
 import GUI.ControlerSignUpView;
 import Model.Nurse;
 import Model_DAO.Nurse_DAO;
@@ -61,9 +62,12 @@ public class Controller implements Initializable{
                 labelWrong.setText(null);
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
                 Parent root = (Parent) loader.load();
+                ControlerMainView mainController =  (ControlerMainView)loader.getController();
                 paneLogin.getChildren().setAll(root);
+
+
             }else {
-                labelWrong.setText("Le nom d'utilisateur ou le mot de passe sont incorrects");
+                labelWrong.setText("Le nom d'utilisateur ou le mot de passe est incorrect");
             }
         }
 

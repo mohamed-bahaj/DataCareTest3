@@ -16,9 +16,9 @@ public class Version {
         Statement st = null;
         ResultSet rs = null;
 
-        String url = "jdbc:mysql://localhost:3306/testdb";
-        String user = "java";
-        String password = "password";
+        String url = "jdbc:mysql://localhost:3306/datacare";
+        String user = "root";
+        String password = "ltaPMP124@";
 
         try {
 

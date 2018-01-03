@@ -5,40 +5,25 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPaneMainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControlerMainView">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Infirmière">
+          <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Voir les infirmières" />
+              <MenuItem fx:id="buttonVoirInfirmiere" mnemonicParsing="false" onAction="#actionVoirInfirmiere" text="Voir les infirmières" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Médecin">
+          <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Voir les médecins" />
-                  <MenuItem mnemonicParsing="false" text="Voir les externes" />
+              <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Patient">
+          <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="Voir les patients" />
+              <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Documents">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Dossiers de patients" />
-                  <MenuItem mnemonicParsing="false" text="Plans de soins" />
-                  <MenuItem mnemonicParsing="false" text="Surveillance de plaies" />
-                  <MenuItem mnemonicParsing="false" text="Evaluation du résultat du traitement" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Recherche">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Recherche" />
-              </items>
-            </Menu>
         </menus>
       </MenuBar>
    </top>

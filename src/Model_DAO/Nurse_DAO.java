@@ -36,9 +36,6 @@ public class Nurse_DAO extends DAO<Nurse> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        /*for(int i=0;i<listNurse.size();i++){
-            System.out.println(listNurse.get(i));
-        }*/
         return listNurse;
 
 
