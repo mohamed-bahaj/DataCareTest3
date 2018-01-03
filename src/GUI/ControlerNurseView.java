@@ -4,13 +4,20 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControlerNurseView implements Initializable{
+
+    @FXML
+    private AnchorPane anchorPaneNurse;
 
     @FXML
     private JFXTextField fieldInami;
@@ -63,7 +70,11 @@ public class ControlerNurseView implements Initializable{
     }
 
     @FXML
-    void addActionBack(ActionEvent event) {
+    void addActionBack(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
+        Parent root = (Parent) loader.load();
+        ControlerMainView mainController =  (ControlerMainView)loader.getController();
+        anchorPaneNurse.getChildren().setAll(root);
 
     }
 

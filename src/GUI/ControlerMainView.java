@@ -62,8 +62,6 @@ public class ControlerMainView implements Initializable {
                         ControlerNurseView nurseControler =  (ControlerNurseView) loader.getController();
                         nurseControler.setText(listnurse.get(i).getInami(),listnurse.get(i).getName(),listnurse.get(i).getLastName(),listnurse.get(i).getEmail(),listnurse.get(i).getStatus());
                         borderPaneMainView.getChildren().setAll(root);
-
-
                     }
                 }
             }
