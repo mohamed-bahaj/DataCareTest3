@@ -45,7 +45,7 @@ public class Allergy {
      * Get type, allergy or aggravating factor
      * @return type
      */
-    public boolean isType() { return type; }
+    public boolean getType() { return type; }
 
     /**
      * Set allergy/aggravating factor name type

@@ -15,16 +15,16 @@ public class Adress_DAO extends DAO<Adress> {
         List<Adress> listAdress = new LinkedList<Adress>();
         try {
             Statement statement = connect.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM Adress");
+            ResultSet rs = statement.executeQuery("SELECT * FROM adresse");
 
             Adress adress = null;
             while(rs.next()){
                 adress = new Adress();
-                adress.setId(rs.getInt("Id"));
-                adress.setStreet(rs.getString("Street"));
-                adress.setNumber(rs.getInt("Number"));
-                adress.setBox(rs.getString("Box"));
-                adress.setIdVille(rs.getInt("IdVille"));
+                adress.setId(rs.getInt("idAdresse"));
+                adress.setStreet(rs.getString("Rue"));
+                adress.setNumber(rs.getInt("Numero"));
+                adress.setBox(rs.getString("Boite"));
+                adress.setIdVille(rs.getInt("Ville_idVille"));
 
                 listAdress.add(adress);
             }
@@ -40,7 +40,7 @@ public class Adress_DAO extends DAO<Adress> {
     @Override
     public void create(Adress obj) throws Exception {
         try {
-            PreparedStatement prepare = connect.prepareStatement("INSERT INTO Adress(Id,Street,Numero,Box, Idville) VALUES(?,?,?,?,?)");
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO Adresse(idAdresse,Rue,Numero,Boite, Ville_idVille) VALUES(?,?,?,?,?)");
             prepare.setInt(1, obj.getId());
             prepare.setString(2,  obj.getStreet());
             prepare.setInt(3,obj.getNumber());

@@ -50,8 +50,6 @@ public class ControlerMainView implements Initializable {
                 borderPaneMainView.setCenter(null);
                 for(int i=0;i<listnurse.size();i++){
                     if((listnurse.get(i).getInami() +"  "+ listnurse.get(i).getName() +"  "+ listnurse.get(i).getLastName()).equals(listViewNurse.getSelectionModel().getSelectedItem().getText())){
-                        System.out.println(listnurse.get(i).getInami());
-
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/NurseView.fxml"));
                         Parent root = null;
                         try {

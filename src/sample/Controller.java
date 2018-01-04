@@ -2,7 +2,13 @@ package sample;
 
 import GUI.ControlerMainView;
 import GUI.ControlerSignUpView;
+import Model.Adress;
+import Model.Allergy;
+import Model.Assistance;
 import Model.Nurse;
+import Model_DAO.Adress_DAO;
+import Model_DAO.Allergy_DAO;
+import Model_DAO.Assistance_DAO;
 import Model_DAO.Nurse_DAO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -78,10 +84,18 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    void addActionSignUp(ActionEvent event) throws IOException {
+    void addActionSignUp(ActionEvent event) throws IOException,Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/signUpView.fxml"));
         Parent root = (Parent) loader.load();
         paneLogin.getChildren().setAll(root);
+
+        System.out.println("debut");
+        Assistance_DAO assistance_dao = new Assistance_DAO();
+        List<Assistance> listAssistance = assistance_dao.read();
+        //System.out.println(listAssistance.get(0).getName() + "  " + listAllergy.get(0).getType());
+        Assistance allergy22 = new Assistance(3,true,true,true,true,true,true,true,true);
+        assistance_dao.create(allergy22);
+        System.out.println("debut");
     }
 
 

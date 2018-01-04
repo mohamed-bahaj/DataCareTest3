@@ -2,56 +2,48 @@ package Model_DAO;
 
 import Model.Allergy;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Allergy_DAO extends DAO<Allergy> {
 
-    /*public ArrayList<Allergy> list_Allergy(){
-        ArrayList<Allergy> list_Allergy = new ArrayList<>();
-
-        try
-        {
-            String query = "SELECT * FROM Allergy";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
-
-            while(resultSet.next())
-            {
-                String nom = resultSet.getString("Nom");
-                boolean type = resultSet.getBoolean("Type");
-                Allergy a = new Allergy(nom, type);
-                list_Allergy.add(a);
-            }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
-            e.printStackTrace();
-        }
-
-
-        return list_Allergy;
-    }*/
-
-
     @Override
     public List<Allergy> read() {
-        return null;
+        List<Allergy> listAllergy = new LinkedList<Allergy>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM allerg_fa");
+
+            Allergy allergy = null;
+            while(rs.next()){
+                allergy = new Allergy();
+                allergy.setName(rs.getString("Nom"));
+                allergy.setType(rs.getBoolean("Type"));
+                listAllergy.add(allergy);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listAllergy;
     }
 
     @Override
     public void create(Allergy obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO allerg_fa(Nom,Type) VALUES(?,?)");
+            prepare.setString(1, obj.getName());
+            prepare.setBoolean(2,  obj.getType());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override
