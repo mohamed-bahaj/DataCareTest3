@@ -16,7 +16,7 @@ public class Nurse_DAO extends DAO<Nurse> {
         List<Nurse> listNurse = new LinkedList<Nurse>();
         try {
             Statement statement = connect.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM Nurse");
+            ResultSet rs = statement.executeQuery("SELECT * FROM infirmiere");
 
             Nurse nurse = null;
             while(rs.next()){
@@ -26,7 +26,7 @@ public class Nurse_DAO extends DAO<Nurse> {
                 nurse.setLastName(rs.getString("Prenom"));
                 nurse.setStatus(rs.getString("Statut"));
                 nurse.setEmail(rs.getString("Email"));
-                nurse.setPassword(rs.getString("mdp"));
+                nurse.setPassword(rs.getString("motdepasse"));
 
                 listNurse.add(nurse);
             }
@@ -44,7 +44,7 @@ public class Nurse_DAO extends DAO<Nurse> {
     @Override
     public void create(Nurse obj) {
         try {
-            PreparedStatement prepare = connect.prepareStatement("INSERT INTO Nurse(Inami,Nom,Prenom,Statut,Email, mdp) VALUES(?,?,?,?,?,?)");
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO infirmiere(Inami,Nom,Prenom,Statut,Email, motdepasse) VALUES(?,?,?,?,?,?)");
             prepare.setInt(1, obj.getInami());
             prepare.setString(2,  obj.getName());
             prepare.setString(3,obj.getLastName());
