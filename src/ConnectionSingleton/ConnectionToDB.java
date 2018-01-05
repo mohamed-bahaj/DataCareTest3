@@ -7,8 +7,8 @@ import java.sql.*;
 public class ConnectionToDB {
 
     private static String url = "jdbc:mysql://localhost:3306/data_care";
-    private static String user = "root";
-    private static String password = "ltaPMP124@";
+    private static String user = "java";
+    private static String password = "password";
     private static Connection connect;
 
 
