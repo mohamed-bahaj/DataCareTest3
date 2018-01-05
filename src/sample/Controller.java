@@ -89,13 +89,13 @@ public class Controller implements Initializable{
         Parent root = (Parent) loader.load();
         paneLogin.getChildren().setAll(root);
 
-        System.out.println("debut");
+        /*System.out.println("debut");
         Assistance_DAO assistance_dao = new Assistance_DAO();
         List<Assistance> listAssistance = assistance_dao.read();
         //System.out.println(listAssistance.get(0).getName() + "  " + listAllergy.get(0).getType());
         Assistance allergy22 = new Assistance(3,true,true,true,true,true,true,true,true);
         assistance_dao.create(allergy22);
-        System.out.println("debut");
+        System.out.println("debut");*/
     }
 
 
