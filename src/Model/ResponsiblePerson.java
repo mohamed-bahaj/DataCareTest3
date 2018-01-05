@@ -1,6 +1,7 @@
 package Model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 /**
  * ResponsiblePerson defines a responsible person of a patient if it is not himself

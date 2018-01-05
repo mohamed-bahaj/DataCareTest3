@@ -2,14 +2,8 @@ package sample;
 
 import GUI.ControlerMainView;
 import GUI.ControlerSignUpView;
-import Model.Adress;
-import Model.Allergy;
-import Model.Assistance;
-import Model.Nurse;
-import Model_DAO.Adress_DAO;
-import Model_DAO.Allergy_DAO;
-import Model_DAO.Assistance_DAO;
-import Model_DAO.Nurse_DAO;
+import Model.*;
+import Model_DAO.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -90,12 +84,20 @@ public class Controller implements Initializable{
         paneLogin.getChildren().setAll(root);
 
         /*System.out.println("debut");
-        Assistance_DAO assistance_dao = new Assistance_DAO();
-        List<Assistance> listAssistance = assistance_dao.read();
+        Certificate_DAO doctor_dao = new Certificate_DAO();
+        List<Certificate> listDoctor = doctor_dao.read();
         //System.out.println(listAssistance.get(0).getName() + "  " + listAllergy.get(0).getType());
-        Assistance allergy22 = new Assistance(3,true,true,true,true,true,true,true,true);
-        assistance_dao.create(allergy22);
+        Certificate doctor = new Certificate(11,false,"2017-04-13","2017-04-18",3.0f,"2017-04-13",1239,);
+        doctor_dao.create(doctor);
         System.out.println("debut");*/
+
+        System.out.println("debut");
+        City_DAO doctor_dao = new City_DAO();
+        List<City> listDoctor = doctor_dao.read();
+        //System.out.println(listAssistance.get(0).getName() + "  " + listAllergy.get(0).getType());
+        City doctor = new City(7000,7000,"Mons","Belgique");
+        doctor_dao.create(doctor);
+        System.out.println("debut");
     }
 
 

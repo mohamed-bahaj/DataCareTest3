@@ -3,62 +3,64 @@ package Model_DAO;
 import Model.CarePlan;
 
 import java.awt.font.NumericShaper;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CarePlan_DAO extends DAO<CarePlan> {
 
-    /*ArrayList<CarePlan> list_Care_Plan()
-    {
-        ArrayList<CarePlan> listCarePlan = new ArrayList<>();
-        try
-        {
-            String query = "SELECT * FROM Plan_soin ";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
+    @Override
+    public List<CarePlan> read() {
+        List<CarePlan> listCarePlan = new LinkedList<CarePlan>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM plan_soin");
 
-            while(resultSet.next())
-            {
-                int id = resultSet.getInt("idPlan_soin");
-                Date date = resultSet.getDate("Date0");
-                String com = resultSet.getString("Commentaire");
-                String type_injection = resultSet.getString("Injection_Type_injection");
-                int id_perfusion = resultSet.getInt("Perfusion_idPerfusion");
-                int id_assistance = resultSet.getInt("Assistance_idAssistance");
-                int id_surveillance = resultSet.getInt("Surveillance_plaie_idSurveillance_plaie");
-                int id_TTDouleur = resultSet.getInt("TT_douleur_idTT_douleur");
-                int inami = resultSet.getInt("Infirmiere_inami");
-                CarePlan carePlan = new CarePlan(id, date, com, type_injection, id_perfusion, id_assistance, id_surveillance, id_TTDouleur, inami);
+            CarePlan carePlan = null;
+            while(rs.next()){
+                carePlan = new CarePlan();
+                carePlan.setId(rs.getInt("idPlan_soin"));
+                carePlan.setDate(rs.getDate("Date"));
+                carePlan.setComment(rs.getString("Commentaire"));
+                carePlan.setInjection(rs.getString("Injection_Type_injection"));
+                carePlan.setIdPerfusion(rs.getInt("Perfusion_idPerfusion"));
+                carePlan.setIdAssistance(rs.getInt("Assistance_idAssistance"));
+                carePlan.setIdWoundSurveillance(rs.getInt("Surveillance_plaie_idSurveillance_plaie"));
+                carePlan.setIdTTDouleur(rs.getInt("TT_douleur_idTT_douleur"));
+                carePlan.setNurseInami(rs.getInt("Infirmiere_Inami"));
+
                 listCarePlan.add(carePlan);
             }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return listCarePlan;
-    }*/
-
-
-    @Override
-    public List<CarePlan> read() {
-        return null;
     }
 
     @Override
     public void create(CarePlan obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO plan_soin(idPlan_soin,Date,Commentaire,Injection_Type_injection,Perfusion_idPerfusion, Assistance_idAssistance, Surveillance_plaie_idSurveillance_plaie, TT_douleur_idTT_douleur,Infirmiere_Inami) VALUES(?,?,?,?,?,?,?,?,?)");
+            prepare.setInt(1, obj.getId());
+            prepare.setDate(2,  obj.getDate());
+            prepare.setString(3,obj.getComment());
+            prepare.setString(4, obj.getInjection() );
+            prepare.setInt(5, obj.getIdPerfusion());
+            prepare.setInt(6, obj.getIdAssistance());
+            prepare.setInt(7, obj.getIdWoundSurveillance() );
+            prepare.setInt(8, obj.getIdTTDouleur());
+            prepare.setInt(9, obj.getNurseInami());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override

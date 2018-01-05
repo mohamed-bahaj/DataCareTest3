@@ -2,67 +2,70 @@ package Model_DAO;
 
 import Model.Patient;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Patient_DAO extends DAO<Patient> {
 
-    /*ArrayList<Patient> list_patient()
-    {
-        ArrayList<Patient> list = new ArrayList<>();
-
-        try
-        {
-            String query = "SELECT * FROM Patient";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
-
-            while(resultSet.next())
-            {
-                int id = resultSet.getInt("idPatient");
-                String name = resultSet.getString("Nom");
-                String surname = resultSet.getString("Prenom");
-                boolean gender = resultSet.getBoolean("Sexe");
-                Date birthday = resultSet.getDate("Date_naissance");
-                int phone = resultSet.getInt("Telephone");
-                boolean typeCare = resultSet.getBoolean("Type_soin");
-                String background = resultSet.getString("Ant_med_chir");
-                String diet = resultSet.getString("Regime");
-                String situation = resultSet.getString("Situation_familiale");
-                String dependance = resultSet.getString("Dependance");
-                int idAdress = resultSet.getInt("Adresse_idAdresse");
-                Patient patient = new Patient(id, name, surname, gender, birthday, phone, typeCare, background, diet, situation, dependance, idAdress);
-                list.add(patient);
-            }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
-            e.printStackTrace();
-        }
-
-        return list;
-    }*/
-
-
     @Override
     public List<Patient> read() {
-        return null;
+        List<Patient> listPatient = new LinkedList<Patient>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM patient");
+
+            Patient patient = null;
+            while(rs.next()){
+                patient = new Patient();
+                patient.setId(rs.getInt("idPatient"));
+                patient.setName(rs.getString("Nom"));
+                patient.setSurname(rs.getString("Prenom"));
+                patient.setGender(rs.getBoolean("Sexe"));
+                patient.setBirthday(rs.getDate("Date_naissance"));
+                patient.setPhoneNumber(rs.getInt("Telephone"));
+                patient.setTypeCare(rs.getBoolean("Type_soin"));
+                patient.setMedicalBackGround(rs.getString("Ant_med_chir"));
+                patient.setDiet(rs.getString("Regime"));
+                patient.setFamilySituation(rs.getString("Situation_familiale"));
+                patient.setDependance(rs.getString("Dependance"));
+                patient.setIdAdress(rs.getInt("Adresse_idAdresse1"));
+
+                listPatient.add(patient);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listPatient;
     }
 
     @Override
     public void create(Patient obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO patient(idPatient,Nom,Prenom,Sexe,Date_naissance, Telephone, Type_soin, Ant_med_chir, Regime, Situation_familiale, Dependance, Adresse_idAdresse1) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+            prepare.setInt(1, obj.getId());
+            prepare.setString(2,  obj.getName());
+            prepare.setString(3,obj.getSurname());
+            prepare.setBoolean(4, obj.getGender() );
+            prepare.setDate(5, obj.getBirthday());
+            prepare.setInt(6, obj.getPhoneNumber());
+            prepare.setBoolean(7, obj.getTypeCare());
+            prepare.setString(8,  obj.getMedicalBackGround());
+            prepare.setString(9,obj.getDiet());
+            prepare.setString(10, obj.getFamilySituation() );
+            prepare.setString(11, obj.getDependance());
+            prepare.setInt(12, obj.getIdAdress());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override

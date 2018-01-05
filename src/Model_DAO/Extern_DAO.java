@@ -2,11 +2,9 @@ package Model_DAO;
 
 import Model.Extern;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Extern_DAO extends DAO<Extern>{
@@ -48,12 +46,44 @@ public class Extern_DAO extends DAO<Extern>{
 
     @Override
     public List<Extern> read() {
-        return null;
+        List<Extern> listExtern = new LinkedList<Extern>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM externe");
+
+            Extern extern = null;
+            while(rs.next()){
+                extern = new Extern();
+                extern.setId(rs.getInt("idExterne"));
+                extern.setName(rs.getString("Nom"));
+                extern.setSurname(rs.getString("Prenom"));
+                extern.setWork(rs.getString("Profession"));
+
+                listExtern.add(extern);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listExtern;
     }
 
     @Override
     public void create(Extern obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO externe(idExterne,Nom,Prenom,Profession) VALUES(?,?,?,?)");
+            prepare.setInt(1, obj.getId());
+            prepare.setString(2,  obj.getName());
+            prepare.setString(3,obj.getSurname());
+            prepare.setString(4, obj.getWork() );
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override

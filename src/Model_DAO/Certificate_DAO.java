@@ -2,62 +2,62 @@ package Model_DAO;
 
 import Model.Certificate;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Certificate_DAO extends DAO<Certificate> {
 
-    /*ArrayList<Certificate> list_certificate()
-    {
-        ArrayList<Certificate> list_certificate = new ArrayList<>();
-
-        try
-        {
-            String query = "SELECT * FROM Certificate";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
-
-            while(resultSet.next())
-            {
-                int id = resultSet.getInt("idCertificat");
-                boolean type = resultSet.getBoolean("Type");
-                Date dateBegin = resultSet.getDate("Date_debut");
-                Date duration = resultSet.getDate("Duree");
-                float time = resultSet.getFloat("Heure");
-                Date datePrescription = resultSet.getDate("Date_prescription");
-                int inami = resultSet.getInt("Medecin_Inami");
-                int idPatient = resultSet.getInt("Patient_idPatient");
-                Certificate certificate = new Certificate(id, type, dateBegin, duration, time, datePrescription, inami, idPatient);
-                list_certificate.add(certificate);
-            }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
-            e.printStackTrace();
-        }
-
-        return list_certificate;
-    }*/
-
     @Override
     public List<Certificate> read() {
-        return null;
+        List<Certificate> listCertificate = new LinkedList<Certificate>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM certificat");
+
+            Certificate certificate = null;
+            while(rs.next()){
+                certificate = new Certificate();
+                certificate.setNumber(rs.getInt("idCertificat"));
+                certificate.setTypeCare(rs.getBoolean("Type"));
+                certificate.setStartingDate(rs.getDate("Date_debut"));
+                certificate.setDuration(rs.getDate("Duree"));
+                certificate.setTime(rs.getFloat("Heure"));
+                certificate.setDatePrescription(rs.getDate("Date_prescription"));
+                certificate.setDoctorInami(rs.getInt("Medecin_Inami"));
+                certificate.setIdPatient(rs.getInt("Patient_idPatient"));
+
+                listCertificate.add(certificate);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listCertificate;
     }
 
     @Override
     public void create(Certificate obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO certificat(idCertificat,Type,Date_debut,Duree,Heure, Date_prescription,Medecin_Inami,Patient_idPatient) VALUES(?,?,?,?,?,?,?,?)");
+            prepare.setInt(1, obj.getNumber());
+            prepare.setBoolean(2,  obj.getTypeCare());
+            prepare.setDate(3,obj.getStartingDate());
+            prepare.setDate(4, obj.getDuration() );
+            prepare.setFloat(5, obj.getTime());
+            prepare.setDate(6, obj.getDatePrescription());
+            prepare.setInt(7, obj.getDoctorInami());
+            prepare.setInt(8, obj.getIdPatient());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override

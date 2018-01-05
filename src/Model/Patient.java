@@ -1,6 +1,7 @@
 package Model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Patient {
     private int id;
@@ -63,8 +64,12 @@ public class Patient {
     public String getDependance() { return dependance; }
     public void setDependance(String dependance) { this.dependance = dependance; }
 
-    public boolean isGender() {
+    public boolean getGender() {
         return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
     }
 
     public boolean isTypeCare() {

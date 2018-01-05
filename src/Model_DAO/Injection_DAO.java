@@ -2,55 +2,47 @@ package Model_DAO;
 
 import Model.Injection;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Injection_DAO extends DAO<Injection> {
 
-    /*ArrayList<Injection> list_injection()
-    {
-        ArrayList<Injection> list = new ArrayList<>();
-
-        try
-        {
-            String query = "SELECT * FROM Injection";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
-
-            while(resultSet.next())
-            {
-                String type = resultSet.getString("Type_injection");
-                Injection injection = new Injection(type);
-                list.add(injection);
-            }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
-            e.printStackTrace();
-        }
-
-        return list;
-    }*/
-
-
     @Override
     public List<Injection> read() {
-        return null;
+        List<Injection> listInjection = new LinkedList<Injection>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM injection");
+
+            Injection injection = null;
+            while(rs.next()){
+                injection = new Injection();
+                injection.setType(rs.getString("Type_injection"));
+
+                listInjection.add(injection);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listInjection;
     }
 
     @Override
     public void create(Injection obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO injection(Type_injection) VALUES(?)");
+            prepare.setString(1, obj.getType());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override

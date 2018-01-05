@@ -37,8 +37,6 @@ public class Nurse_DAO extends DAO<Nurse> {
             e.printStackTrace();
         }
         return listNurse;
-
-
     }
 
     @Override
@@ -57,7 +55,6 @@ public class Nurse_DAO extends DAO<Nurse> {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
     }
 
     @Override

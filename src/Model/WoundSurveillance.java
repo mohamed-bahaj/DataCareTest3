@@ -63,7 +63,7 @@ public class WoundSurveillance {
         this.type = type;
     }
 
-    public boolean isRougeur() {
+    public boolean getRougeur() {
         return rougeur;
     }
 
@@ -71,7 +71,7 @@ public class WoundSurveillance {
         this.rougeur = rougeur;
     }
 
-    public boolean isFibrine() {
+    public boolean getFibrine() {
         return fibrine;
     }
 
@@ -79,7 +79,7 @@ public class WoundSurveillance {
         this.fibrine = fibrine;
     }
 
-    public boolean isNecrose() {
+    public boolean getNecrose() {
         return necrose;
     }
 
@@ -87,7 +87,7 @@ public class WoundSurveillance {
         this.necrose = necrose;
     }
 
-    public boolean isExsudats() {
+    public boolean getExsudats() {
         return exsudats;
     }
 
@@ -95,7 +95,7 @@ public class WoundSurveillance {
         this.exsudats = exsudats;
     }
 
-    public boolean isPus() {
+    public boolean getPus() {
         return pus;
     }
 
@@ -103,7 +103,7 @@ public class WoundSurveillance {
         this.pus = pus;
     }
 
-    public boolean isOdeurs() {
+    public boolean getOdeurs() {
         return odeurs;
     }
 
@@ -111,7 +111,7 @@ public class WoundSurveillance {
         this.odeurs = odeurs;
     }
 
-    public boolean isInflammation() {
+    public boolean getInflammation() {
         return inflammation;
     }
 
@@ -119,7 +119,7 @@ public class WoundSurveillance {
         this.inflammation = inflammation;
     }
 
-    public boolean isMacerees() {
+    public boolean getMacerees() {
         return macerees;
     }
 
@@ -127,7 +127,7 @@ public class WoundSurveillance {
         this.macerees = macerees;
     }
 
-    public boolean isOedematiees() {
+    public boolean getOedematiees() {
         return oedematiees;
     }
 
@@ -135,7 +135,7 @@ public class WoundSurveillance {
         this.oedematiees = oedematiees;
     }
 
-    public boolean isBourgeons() {
+    public boolean getBourgeons() {
         return bourgeons;
     }
 
@@ -143,7 +143,7 @@ public class WoundSurveillance {
         this.bourgeons = bourgeons;
     }
 
-    public boolean isEpidermistion() {
+    public boolean getEpidermistion() {
         return epidermistion;
     }
 

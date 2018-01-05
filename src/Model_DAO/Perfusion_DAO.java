@@ -2,58 +2,53 @@ package Model_DAO;
 
 import Model.Perfusion;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Perfusion_DAO extends DAO<Perfusion> {
 
-    /*ArrayList<Perfusion> list_perfusion()
-    {
-        ArrayList<Perfusion> list = new ArrayList<>();
-
-        try
-        {
-            String query = "SELECT * FROM Perfusion";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
-
-            while(resultSet.next())
-            {
-                int id = resultSet.getInt("idPerfusion");
-                String type = resultSet.getString("Type");
-                float quantity = resultSet.getFloat("Quantite");
-                float time = resultSet.getFloat("Temps");
-                Perfusion perfusion = new Perfusion(id, type, quantity, time);
-                list.add(perfusion);
-            }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
-            e.printStackTrace();
-        }
-
-        return list;
-    }*/
-
-
     @Override
     public List<Perfusion> read() {
-        return null;
+        List<Perfusion> listPerfusion = new LinkedList<Perfusion>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM perfusion");
+
+            Perfusion perfusion = null;
+            while(rs.next()){
+                perfusion = new Perfusion();
+                perfusion.setId(rs.getInt("idPerfusion"));
+                perfusion.setType(rs.getString("Type"));
+                perfusion.setQuantity(rs.getFloat("Quantite"));
+                perfusion.setTime(rs.getFloat("Temps"));
+
+                listPerfusion.add(perfusion);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listPerfusion;
     }
 
     @Override
     public void create(Perfusion obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO perfusion(idPerfusion,Type,Quantite,Temps) VALUES(?,?,?,?)");
+            prepare.setInt(1, obj.getId());
+            prepare.setString(2,  obj.getType());
+            prepare.setFloat(3,obj.getQuantity());
+            prepare.setFloat(4, obj.getTime());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override

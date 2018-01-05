@@ -2,55 +2,46 @@ package Model_DAO;
 
 import Model.Threatment;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Threatment_DAO extends DAO<Threatment> {
 
-    /*ArrayList<Threatment> list_threatment()
-    {
-        ArrayList<Threatment> list = new ArrayList<>();
-
-        try
-        {
-            String query = "SELECT * FROM Traitement";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
-
-            while(resultSet.next())
-            {
-                String drug = resultSet.getString("Medicament");
-                Threatment threatment = new Threatment(drug);
-                list.add(threatment);
-            }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
-            e.printStackTrace();
-        }
-
-        return list;
-    }*/
-
-
     @Override
     public List<Threatment> read() {
-        return null;
+        List<Threatment> listThreatment = new LinkedList<Threatment>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM traitement");
+
+            Threatment threatment = null;
+            while(rs.next()){
+                threatment = new Threatment();
+                threatment.setDrug(rs.getString("Medicament"));
+                listThreatment.add(threatment);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listThreatment;
     }
 
     @Override
     public void create(Threatment obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO traitement(Medicament) VALUES(?)");
+            prepare.setString(1, obj.getDrug());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override

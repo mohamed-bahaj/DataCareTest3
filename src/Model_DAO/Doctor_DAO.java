@@ -3,59 +3,57 @@ package Model_DAO;
 import Model.Doctor;
 
 import javax.print.Doc;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Doctor_DAO extends DAO<Doctor>  {
 
-    /*ArrayList<Doctor> list_doctor()
-    {
-        ArrayList<Doctor> list = new ArrayList<>();
 
-        try
-        {
-            String query = "SELECT * FROM Medecin";
-            Statement statement = dbConnect.createStatement();
-            ResultSet resultSet;
-            resultSet =statement.executeQuery(query);
-
-            while(resultSet.next())
-            {
-                int inami = resultSet.getInt("Inami");
-                String name = resultSet.getString("Nom");
-                String surname = resultSet.getString("Prenom");
-                String spec = resultSet.getString("Specialisation");
-                Doctor doctor = new Doctor(inami, name, surname, spec);
-                list.add(doctor);
-            }
-        }
-        catch (SQLException e)
-        {
-            System.out.println(" Erreur SQL "+ e);
-        }
-        catch (Exception e)
-        {
-            System.out.println(" Erreur "+ e);
-            e.printStackTrace();
-        }
-
-        return list;
-    }*/
 
 
     @Override
     public List<Doctor> read() {
-        return null;
+        List<Doctor> listDoctor = new LinkedList<Doctor>();
+        try {
+            Statement statement = connect.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM medecin");
+
+            Doctor doctor = null;
+            while(rs.next()){
+                doctor = new Doctor();
+                doctor.setInamiNumber(rs.getInt("Inami"));
+                doctor.setName(rs.getString("Nom"));
+                doctor.setSurname(rs.getString("Prenom"));
+                doctor.setSpecialisation(rs.getString("Specialisation"));
+
+                listDoctor.add(doctor);
+            }
+            rs.close();
+            statement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listDoctor;
     }
 
     @Override
     public void create(Doctor obj) throws Exception {
-
+        try {
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO medecin(Inami,Nom,Prenom,Specialisation) VALUES(?,?,?,?)");
+            prepare.setInt(1, obj.getInamiNumber());
+            prepare.setString(2,  obj.getName());
+            prepare.setString(3,obj.getSurname());
+            prepare.setString(4, obj.getSpecialisation());
+            prepare.executeUpdate();
+            prepare.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @Override
