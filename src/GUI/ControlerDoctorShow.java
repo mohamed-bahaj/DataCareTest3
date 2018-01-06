@@ -7,32 +7,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControlerNurseView implements Initializable{
+public class ControlerDoctorShow implements Initializable{
 
     @FXML
-    private AnchorPane anchorPaneNurse;
-
-    @FXML
-    private JFXTextField fieldInami;
-
-    @FXML
-    private JFXTextField fieldNom;
-
-    @FXML
-    private JFXTextField fieldPrénom;
-
-    @FXML
-    private JFXTextField fieldEmail;
-
-    @FXML
-    private JFXTextField fieldStatut;
+    private AnchorPane anchorPaneDoctor;
 
     @FXML
     private JFXButton buttonSave;
@@ -44,35 +28,30 @@ public class ControlerNurseView implements Initializable{
     private JFXButton buttonBack;
 
     @FXML
-    private Label labelInami;
+    private JFXTextField fieldInami;
 
     @FXML
-    private Label labelNom;
+    private JFXTextField fieldName;
 
     @FXML
-    private Label labelPrénom;
+    private JFXTextField fieldSurname;
 
     @FXML
-    private Label labelEmail;
+    private JFXTextField fieldSpecialisation;
 
-    @FXML
-    private Label labelStatut;
-
-    public void setText(int inami,String name,String lastName,String email,String status){
+    public void setText(int inami,String name,String lastName,String specialisation) {
         this.fieldInami.setText(Integer.toString(inami));
-        this.fieldNom.setText(name);
-        this.fieldPrénom.setText(lastName);
-        this.fieldEmail.setText(email);
-        this.fieldStatut.setText(status);
+        this.fieldName.setText(name);
+        this.fieldSurname.setText(lastName);
+        this.fieldSpecialisation.setText(specialisation);
     }
 
     @FXML
-    void addActionBack(ActionEvent event) throws IOException{
+    void addActionBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
         Parent root = (Parent) loader.load();
         ControlerMainView mainController =  (ControlerMainView)loader.getController();
-        anchorPaneNurse.getChildren().setAll(root);
-
+        anchorPaneDoctor.getChildren().setAll(root);
     }
 
     @FXML
@@ -84,6 +63,8 @@ public class ControlerNurseView implements Initializable{
     void addActionSave(ActionEvent event) {
 
     }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

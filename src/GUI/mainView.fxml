@@ -12,17 +12,22 @@
           <Menu mnemonicParsing="false" text="Infirmière">
             <items>
               <MenuItem fx:id="buttonVoirInfirmiere" mnemonicParsing="false" onAction="#actionVoirInfirmiere" text="Voir les infirmières" />
+                  <MenuItem fx:id="buttonAddNurse" mnemonicParsing="false" onAction="#addActionAddNurse" text="Ajouter une infirmière" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Médecin">
             <items>
-              <MenuItem mnemonicParsing="false" text="Voir les médecins" />
-                  <MenuItem mnemonicParsing="false" text="Voir les externes" />
+              <MenuItem fx:id="buttonShowDoctor" mnemonicParsing="false" onAction="#addActionShowDoctor" text="Voir les médecins" />
+                  <MenuItem fx:id="buttonAddDoctor" mnemonicParsing="false" onAction="#addActionAddDoctor" text="Ajouter un médecin" />
+                  <MenuItem fx:id="buttonShowExtern" mnemonicParsing="false" onAction="#addActionShowExtern" text="Voir les externes" />
+                  <MenuItem fx:id="buttonAddExtern" mnemonicParsing="false" onAction="#addActionAddExtern" text="Ajouter un externe" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Patient">
             <items>
-              <MenuItem mnemonicParsing="false" text="Voir les patients" />
+              <MenuItem fx:id="buttonShowPatient" mnemonicParsing="false" onAction="#addActionShowPatient" text="Voir les patients" />
+                  <MenuItem fx:id="buttonAddPatient" mnemonicParsing="false" onAction="#addActionAddPatient" text="Ajouter un patient" />
+                  <MenuItem fx:id="buttonAddTreatment" mnemonicParsing="false" onAction="#addActionAddTreatment" text="Ajouter un traitement" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Document">

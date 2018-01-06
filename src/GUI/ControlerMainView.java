@@ -1,6 +1,10 @@
 package GUI;
 
+import Model.Doctor;
+import Model.Extern;
 import Model.Nurse;
+import Model_DAO.Doctor_DAO;
+import Model_DAO.Extern_DAO;
 import Model_DAO.Nurse_DAO;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
@@ -32,6 +36,128 @@ public class ControlerMainView implements Initializable {
     private MenuItem buttonVoirInfirmiere;
 
     @FXML
+    private MenuItem buttonAddNurse;
+
+    @FXML
+    private MenuItem buttonShowDoctor;
+
+    @FXML
+    private MenuItem buttonAddDoctor;
+
+    @FXML
+    private MenuItem buttonShowExtern;
+
+    @FXML
+    private MenuItem buttonAddExtern;
+
+    @FXML
+    private MenuItem buttonShowPatient;
+
+    @FXML
+    private MenuItem buttonAddPatient;
+
+    @FXML
+    private MenuItem buttonAddTreatment;
+
+    @FXML
+    void addActionAddDoctor(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/DoctorAddView.fxml"));
+        Parent root = (Parent) loader.load();
+        borderPaneMainView.getChildren().setAll(root);
+    }
+
+    @FXML
+    void addActionAddExtern(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/externAddView.fxml"));
+        Parent root = (Parent) loader.load();
+        borderPaneMainView.getChildren().setAll(root);
+    }
+
+    @FXML
+    void addActionAddPatient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addActionAddTreatment(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addActionShowDoctor(ActionEvent event) {
+        Doctor_DAO doctor_dao = new Doctor_DAO();
+        List<Doctor> listDoctor = doctor_dao.read();
+
+        JFXListView<Label> listViewDoctor = new JFXListView<>();
+        for(int i=0;i<listDoctor.size();i++){
+            listViewDoctor.getItems().add(new Label(listDoctor.get(i).getInamiNumber() +"  "+ listDoctor.get(i).getName() +"  "+ listDoctor.get(i).getSurname() ));
+        }
+        borderPaneMainView.setCenter(listViewDoctor);
+
+        listViewDoctor.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                listViewDoctor.getSelectionModel().getSelectedItem().getText();
+                borderPaneMainView.setCenter(null);
+                for(int i=0;i<listDoctor.size();i++){
+                    if((listDoctor.get(i).getInamiNumber() +"  "+ listDoctor.get(i).getName() +"  "+ listDoctor.get(i).getSurname()).equals(listViewDoctor.getSelectionModel().getSelectedItem().getText())){
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/DoctorShowView.fxml"));
+                        Parent root = null;
+                        try {
+                            root = (Parent) loader.load();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ControlerDoctorShow controlerDoctorShow =  (ControlerDoctorShow) loader.getController();
+                        controlerDoctorShow.setText(listDoctor.get(i).getInamiNumber(),listDoctor.get(i).getName(),listDoctor.get(i).getSurname(),listDoctor.get(i).getSpecialisation());
+                        borderPaneMainView.getChildren().setAll(root);
+                    }
+                }
+            }
+        });
+
+    }
+
+    @FXML
+    void addActionShowExtern(ActionEvent event) {
+        Extern_DAO extern_dao = new Extern_DAO();
+        List<Extern> listExtern = extern_dao.read();
+
+        JFXListView<Label> listViewExtern = new JFXListView<>();
+        for(int i=0;i<listExtern.size();i++){
+            listViewExtern.getItems().add(new Label(listExtern.get(i).getId() +"  "+ listExtern.get(i).getName() +"  "+ listExtern.get(i).getSurname() ));
+        }
+        borderPaneMainView.setCenter(listViewExtern);
+
+        listViewExtern.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                listViewExtern.getSelectionModel().getSelectedItem().getText();
+                borderPaneMainView.setCenter(null);
+                for(int i=0;i<listExtern.size();i++){
+                    if((listExtern.get(i).getId() +"  "+ listExtern.get(i).getName() +"  "+ listExtern.get(i).getSurname()).equals(listViewExtern.getSelectionModel().getSelectedItem().getText())){
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/externShowView.fxml"));
+                        Parent root = null;
+                        try {
+                            root = (Parent) loader.load();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ControlerExternShowView externControler =  (ControlerExternShowView) loader.getController();
+                        externControler.setText(listExtern.get(i).getId(),listExtern.get(i).getName(),listExtern.get(i).getSurname(),listExtern.get(i).getWork());
+                        borderPaneMainView.getChildren().setAll(root);
+                    }
+                }
+            }
+        });
+    }
+
+    @FXML
+    void addActionShowPatient(ActionEvent event) {
+
+    }
+
+    @FXML
     void actionVoirInfirmiere(ActionEvent event) {
         Nurse_DAO nurseDao = new Nurse_DAO();
         List<Nurse> listnurse = nurseDao.read();
@@ -40,11 +166,7 @@ public class ControlerMainView implements Initializable {
         for(int i=0;i<listnurse.size();i++){
             listViewNurse.getItems().add(new Label(listnurse.get(i).getInami() +"  "+ listnurse.get(i).getName() +"  "+ listnurse.get(i).getLastName() ));
         }
-
-
-
         borderPaneMainView.setCenter(listViewNurse);
-
 
         listViewNurse.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -67,7 +189,13 @@ public class ControlerMainView implements Initializable {
                 }
             }
         });
+    }
 
+    @FXML
+    void addActionAddNurse(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/signUpView.fxml"));
+        Parent root = (Parent) loader.load();
+        borderPaneMainView.getChildren().setAll(root);
     }
 
 
