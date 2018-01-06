@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.ZoneId;
@@ -81,6 +82,17 @@ public class ControlerPatientAdd implements Initializable{
     private JFXButton buttonAddPatient;
 
     @FXML
+    private JFXButton buttonBack;
+
+    @FXML
+    void addActionBack(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
+        Parent root = (Parent) loader.load();
+        ControlerMainView mainController =  (ControlerMainView)loader.getController();
+        anchorPaneAddPatient.getChildren().setAll(root);
+    }
+
+    @FXML
     void addActionAddPatient(ActionEvent event) throws Exception {
 
         boolean sexe;
@@ -104,6 +116,15 @@ public class ControlerPatientAdd implements Initializable{
 
         City city = new City(Integer.parseInt(fieldCP.getText()), fieldVille.getText(), fieldPays.getText());
 
+        boolean cityTest =false;
+        for(int i=0;i<listCity.size();i++) {
+            if (listCity.get(i).getName().equals(city.getName()) && listCity.get(i).getPostalCode() == city.getPostalCode()) {
+                cityTest = true;
+            }
+        }
+        if(cityTest==false){
+            city_dao.create(city);
+        }
 
         Adress_DAO adress_dao = new Adress_DAO();
         List<Adress> listAdress = adress_dao.read();
@@ -142,7 +163,7 @@ public class ControlerPatientAdd implements Initializable{
 
         Patient_DAO patient_dao = new Patient_DAO();
         List<Patient> listPatient = patient_dao.read();
-        Patient patient = new Patient(fieldNom.getText(),fieldPrenom.getText(),sexe,date,Integer.parseInt(fieldTelephone.getText()),soin,fieldMedicalBackground.getText(),fieldRegime.getText(),fieldFamille.getText(),fieldDependance.getText(),adress.getId());
+        Patient patient = new Patient(fieldNom.getText(),fieldPrenom.getText(),sexe,date,Integer.parseInt(fieldTelephone.getText()),soin,fieldMedicalBackground.getText(),fieldRegime.getText(),fieldFamille.getText(),fieldDependance.getText(),adress.getId(),9999);
         boolean patientTest =false;
         for(int i=0;i<listPatient.size();i++) {
             if (listPatient.get(i).getName().equals(patient.getName()) && listPatient.get(i).getSurname().equals(patient.getSurname())) {

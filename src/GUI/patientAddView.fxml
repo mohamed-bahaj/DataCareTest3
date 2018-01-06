@@ -42,5 +42,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <JFXButton fx:id="buttonBack" layoutX="204.0" layoutY="437.0" onAction="#addActionBack" style="-fx-background-color: #2d3447;" text="Annuler" textFill="#ccb12b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

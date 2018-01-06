@@ -23,7 +23,7 @@ public class Certificate_DAO extends DAO<Certificate> {
                 certificate.setNumber(rs.getInt("idCertificat"));
                 certificate.setTypeCare(rs.getBoolean("Type"));
                 certificate.setStartingDate(rs.getDate("Date_debut"));
-                certificate.setDuration(rs.getDate("Duree"));
+                certificate.setDuration(rs.getFloat("Duree"));
                 certificate.setTime(rs.getFloat("Heure"));
                 certificate.setDatePrescription(rs.getDate("Date_prescription"));
                 certificate.setDoctorInami(rs.getInt("Medecin_Inami"));
@@ -47,7 +47,7 @@ public class Certificate_DAO extends DAO<Certificate> {
             prepare.setInt(1, obj.getNumber());
             prepare.setBoolean(2,  obj.getTypeCare());
             prepare.setDate(3,obj.getStartingDate());
-            prepare.setDate(4, obj.getDuration() );
+            prepare.setFloat(4, obj.getDuration() );
             prepare.setFloat(5, obj.getTime());
             prepare.setDate(6, obj.getDatePrescription());
             prepare.setInt(7, obj.getDoctorInami());
@@ -67,7 +67,7 @@ public class Certificate_DAO extends DAO<Certificate> {
             PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Certificat SET `Type` = ? , `Date_debut`= ?, `Duree`= ?, `Heure`= ?, `Date_prescription` = ? WHERE `idCertificat`= ? ");
             preparedStatement.setBoolean(1, obj.getTypeCare());
             preparedStatement.setDate(2, (java.sql.Date) obj.getStartingDate());
-            preparedStatement.setDate(3, (java.sql.Date) obj.getDuration());
+            preparedStatement.setFloat(3, obj.getDuration());
             preparedStatement.setFloat(4, obj.getTime());
             preparedStatement.setDate(5, (java.sql.Date) obj.getDatePrescription());
             preparedStatement.setInt(6, obj.getNumber());

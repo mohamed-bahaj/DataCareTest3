@@ -16,10 +16,11 @@ public class Patient {
     private String familySituation;
     private String dependance;
     private int idAdress;
+    private int idTitulaire;
 
     public Patient(){}
 
-    public Patient(String name, String surname, boolean gender, Date birthday, int phoneNumber, boolean typeCare, String medicalBackGround, String diet, String familySituation, String dependance, int idAdress) {
+    public Patient(String name, String surname, boolean gender, Date birthday, int phoneNumber, boolean typeCare, String medicalBackGround, String diet, String familySituation, String dependance, int idAdress, int idTitulaire) {
         //this.id = id;
         this.name = name;
         this.surname = surname;
@@ -32,6 +33,7 @@ public class Patient {
         this.familySituation = familySituation;
         this.dependance = dependance;
         this.idAdress = idAdress;
+        this.idTitulaire = idTitulaire;
     }
 
     public int getId() { return id; }
@@ -82,5 +84,13 @@ public class Patient {
 
     public void setIdAdress(int idAdress) {
         this.idAdress = idAdress;
+    }
+
+    public int getIdTitulaire() {
+        return idTitulaire;
+    }
+
+    public void setIdTitulaire(int idTitulaire) {
+        this.idTitulaire = idTitulaire;
     }
 }

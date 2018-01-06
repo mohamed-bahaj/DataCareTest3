@@ -3,9 +3,11 @@ package GUI;
 import Model.Doctor;
 import Model.Extern;
 import Model.Nurse;
+import Model.Patient;
 import Model_DAO.Doctor_DAO;
 import Model_DAO.Extern_DAO;
 import Model_DAO.Nurse_DAO;
+import Model_DAO.Patient_DAO;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -156,7 +158,36 @@ public class ControlerMainView implements Initializable {
 
     @FXML
     void addActionShowPatient(ActionEvent event) {
+        Patient_DAO patient_dao = new Patient_DAO();
+        List<Patient> listPatient = patient_dao.read();
 
+        JFXListView<Label> listViewPatient = new JFXListView<>();
+        for(int i=0;i<listPatient.size();i++){
+            listViewPatient.getItems().add(new Label(listPatient.get(i).getName() +"  "+ listPatient.get(i).getSurname()));
+        }
+        borderPaneMainView.setCenter(listViewPatient);
+
+        listViewPatient.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                listViewPatient.getSelectionModel().getSelectedItem().getText();
+                borderPaneMainView.setCenter(null);
+                for(int i=0;i<listPatient.size();i++){
+                    if((listPatient.get(i).getName() +"  "+ listPatient.get(i).getSurname()).equals(listViewPatient.getSelectionModel().getSelectedItem().getText())){
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/patientShowView.fxml"));
+                        Parent root = null;
+                        try {
+                            root = (Parent) loader.load();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ControlerPatientShow controlerPatientShow =  (ControlerPatientShow) loader.getController();
+                        controlerPatientShow.setText(listPatient.get(i).getName(), listPatient.get(i).getSurname(),listPatient.get(i).getGender(), listPatient.get(i).getBirthday(), listPatient.get(i).getPhoneNumber(), listPatient.get(i).getTypeCare(), listPatient.get(i).getMedicalBackGround(), listPatient.get(i).getDiet(), listPatient.get(i).getFamilySituation(), listPatient.get(i).getDependance(), listPatient.get(i).getIdAdress());
+                        borderPaneMainView.getChildren().setAll(root);
+                    }
+                }
+            }
+        });
     }
 
     @FXML

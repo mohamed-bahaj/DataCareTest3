@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:controller="GUI.ControlerCarePlan" fx:id="anchorPanePlanCare" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField fx:id="fieldPatient" focusColor="#ccb12b" layoutX="137.0" layoutY="17.0" />
+      <JFXDatePicker fx:id="dateCarePlanPicker" defaultColor="#ccb12b" layoutX="314.0" layoutY="17.0" prefHeight="31.0" prefWidth="32.0" />
+      <JFXTextArea fx:id="fieldComment" focusColor="#ccb12b" layoutX="47.0" layoutY="59.0" prefHeight="41.0" prefWidth="518.0" promptText="Commentaire" unFocusColor="#4d4d4d" />
+      <Text layoutX="29.0" layoutY="40.0" strokeMiterLimit="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan de soin" wrappingWidth="107.6708984375">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="comboInjection" focusColor="#ccb12b" layoutX="47.0" layoutY="278.0" prefHeight="31.0" prefWidth="127.0" promptText="Injection" />
+      <Label layoutX="363.0" layoutY="54.0" prefHeight="21.0" prefWidth="234.0" textFill="#f80000" />
+      <JFXTextField editable="false" focusColor="#ccb12b" layoutX="47.0" layoutY="111.0" prefHeight="31.0" prefWidth="127.0" text="Assistance" />
+      <JFXTextField focusColor="#ccb12b" layoutX="190.0" layoutY="111.0" prefHeight="31.0" prefWidth="55.0" text="Toilette" />
+      <JFXRadioButton fx:id="radioBed" layoutX="262.0" layoutY="116.0" text="lit" />
+      <JFXRadioButton fx:id="radioBassin" layoutX="332.0" layoutY="116.0" text="lavabo" />
+      <JFXToggleButton fx:id="toggleAlimentation" layoutX="284.0" layoutY="128.0" prefHeight="60.0" prefWidth="18.0" text=" " toggleColor="#ccb12b" />
+      <JFXTextField editable="false" layoutX="190.0" layoutY="142.0" prefHeight="31.0" prefWidth="94.0" text="Alimentation" />
+      <JFXTextField editable="false" layoutX="190.0" layoutY="173.0" prefHeight="31.0" prefWidth="94.0" text="Médication" />
+      <JFXToggleButton fx:id="toggleMedication" layoutX="284.0" layoutY="158.0" text=" " toggleColor="#ccb12b" />
+      <JFXToggleButton fx:id="toggleMediCassette" layoutX="284.0" layoutY="188.0" text=" " toggleColor="#ccb12b" />
+      <JFXToggleButton fx:id="toggleElimination" layoutX="284.0" layoutY="218.0" text=" " toggleColor="#ccb12b" />
+      <JFXToggleButton fx:id="togglePAnat" layoutX="490.0" layoutY="128.0" text=" " toggleColor="#ccb12b" />
+      <JFXTextField editable="false" layoutX="190.0" layoutY="203.0" prefHeight="31.0" prefWidth="94.0" text="Médi-cassette" />
+      <JFXTextField editable="false" layoutX="190.0" layoutY="234.0" prefHeight="31.0" prefWidth="94.0" text="Eliminations" />
+      <JFXTextField editable="false" layoutX="383.0" layoutY="142.0" prefHeight="31.0" prefWidth="118.0" text="Protections Anat" />
+      <JFXTextField editable="false" layoutX="383.0" layoutY="173.0" prefHeight="31.0" prefWidth="118.0" text="Frictions" />
+      <JFXTextField editable="false" layoutX="383.0" layoutY="203.0" prefHeight="31.0" prefWidth="118.0" text="Pansement" />
+      <JFXToggleButton fx:id="toggleFriction" layoutX="490.0" layoutY="158.0" text=" " toggleColor="#ccb12b" />
+      <JFXToggleButton fx:id="toggleSticking" layoutX="490.0" layoutY="188.0" text=" " toggleColor="#ccb12b" />
+      <JFXTextField editable="false" layoutX="401.0" layoutY="250.0" prefHeight="31.0" prefWidth="133.0" text="Perfusion" />
+      <JFXComboBox fx:id="comboTypePerfusion" focusColor="#ccb12b" layoutX="417.0" layoutY="281.0" prefHeight="31.0" prefWidth="94.0" promptText="Type" />
+      <JFXTextField fx:id="fieldQuantity" focusColor="#ccb12b" layoutX="420.0" layoutY="312.0" prefHeight="31.0" prefWidth="94.0" promptText="Quantité" />
+      <JFXTextField fx:id="fieldTime" focusColor="#ccb12b" layoutX="421.0" layoutY="343.0" prefHeight="31.0" prefWidth="94.0" promptText="Temps" />
+      <JFXComboBox fx:id="comboTTDouleur" focusColor="#ccb12b" layoutX="221.0" layoutY="281.0" promptText="TT Douleur" />
+      <JFXButton fx:id="buttonAddCare" layoutX="383.0" layoutY="29.0" onAction="#addActionAddCare" prefHeight="31.0" prefWidth="169.0" ripplerFill="#ccb12b" style="-fx-background-color: #2d3447;" text="Ajouter un soin" textFill="#ccb12b" />
+   </children>
+</AnchorPane>

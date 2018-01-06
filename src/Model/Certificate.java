@@ -7,7 +7,7 @@ public class Certificate {
     private int number;
     private boolean typeCare;
     private Date startingDate;
-    private Date duration;
+    private float duration;
     private float time;
     private Date datePrescription;
     private int doctorInami;
@@ -15,7 +15,7 @@ public class Certificate {
 
     public Certificate(){}
 
-    public Certificate(int number, boolean typeCare, Date startingDate, Date duration, float time, Date datePrescription, int doctorInami, int idPatient) {
+    public Certificate(int number, boolean typeCare, Date startingDate, float duration, float time, Date datePrescription, int doctorInami, int idPatient) {
         this.number = number;
         this.typeCare = typeCare;
         this.startingDate = startingDate;
@@ -33,8 +33,8 @@ public class Certificate {
     public void setTypeCare(boolean typeCare) { this.typeCare = typeCare; }
     public Date getStartingDate() { return startingDate; }
     public void setStartingDate(Date startingDate) { this.startingDate = startingDate; }
-    public Date getDuration() { return duration; }
-    public void setDuration(Date duration) { this.duration = duration; }
+    public float getDuration() { return duration; }
+    public void setDuration(float duration) { this.duration = duration; }
     public float getTime() { return time; }
     public void setTime(float time) { this.time = time; }
 

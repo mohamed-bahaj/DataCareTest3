@@ -32,6 +32,7 @@ public class Patient_DAO extends DAO<Patient> {
                 patient.setFamilySituation(rs.getString("Situation_familiale"));
                 patient.setDependance(rs.getString("Dependance"));
                 patient.setIdAdress(rs.getInt("Adresse_idAdresse1"));
+                patient.setIdTitulaire(rs.getInt("Titulaire_idTitulaire"));
 
                 listPatient.add(patient);
             }
@@ -47,7 +48,7 @@ public class Patient_DAO extends DAO<Patient> {
     @Override
     public void create(Patient obj) throws Exception {
         try {
-            PreparedStatement prepare = connect.prepareStatement("INSERT INTO patient(idPatient,Nom,Prenom,Sexe,Date_naissance, Telephone, Type_soin, Ant_med_chir, Regime, Situation_familiale, Dependance, Adresse_idAdresse1) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO patient(idPatient,Nom,Prenom,Sexe,Date_naissance, Telephone, Type_soin, Ant_med_chir, Regime, Situation_familiale, Dependance, Adresse_idAdresse1,Titulaire_idTitulaire) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             prepare.setInt(1, obj.getId());
             prepare.setString(2,  obj.getName());
             prepare.setString(3,obj.getSurname());
@@ -60,6 +61,7 @@ public class Patient_DAO extends DAO<Patient> {
             prepare.setString(10, obj.getFamilySituation() );
             prepare.setString(11, obj.getDependance());
             prepare.setInt(12, obj.getIdAdress());
+            prepare.setInt(13, obj.getIdTitulaire());
             prepare.executeUpdate();
             prepare.close();
         } catch (SQLException e) {

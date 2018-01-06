@@ -24,7 +24,6 @@ public class ResponsiblePerson_DAO extends DAO<ResponsiblePerson> {
                 responsiblePerson.setName(rs.getString("Nom"));
                 responsiblePerson.setSurname(rs.getString("Prenom"));
                 responsiblePerson.setBirthday(rs.getDate("Date_naissance"));
-                responsiblePerson.setIdPatient(rs.getInt("Patient_idPatient"));
 
                 listResponsiblePerson.add(responsiblePerson);
             }
@@ -40,12 +39,12 @@ public class ResponsiblePerson_DAO extends DAO<ResponsiblePerson> {
     @Override
     public void create(ResponsiblePerson obj) throws Exception {
         try {
-            PreparedStatement prepare = connect.prepareStatement("INSERT INTO titulaire(idTitulaire,Nom,Prenom,Date_naissance,Patient_idPatient) VALUES(?,?,?,?,?)");
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO titulaire(idTitulaire,Nom,Prenom,Date_naissance) VALUES(?,?,?,?)");
             prepare.setInt(1, obj.getId());
             prepare.setString(2,  obj.getName());
             prepare.setString(3,obj.getSurname());
             prepare.setDate(4, obj.getBirthday() );
-            prepare.setInt(5, obj.getIdPatient());
+
             prepare.executeUpdate();
             prepare.close();
         } catch (SQLException e) {

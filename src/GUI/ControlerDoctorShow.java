@@ -1,5 +1,7 @@
 package GUI;
 
+import Model.Doctor;
+import Model_DAO.Doctor_DAO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -55,8 +57,11 @@ public class ControlerDoctorShow implements Initializable{
     }
 
     @FXML
-    void addActionDelete(ActionEvent event) {
-
+    void addActionDelete(ActionEvent event) throws Exception {
+        Doctor_DAO doctor_dao = new Doctor_DAO();
+        Doctor doctor = new Doctor();
+        doctor.setInamiNumber(Integer.parseInt(this.fieldInami.getText()));
+        doctor_dao.delete(doctor);
     }
 
     @FXML
