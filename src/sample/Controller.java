@@ -91,13 +91,12 @@ public class Controller implements Initializable{
         doctor_dao.create(doctor);
         System.out.println("debut");*/
 
-        System.out.println("debut");
+        /*System.out.println("debut");
         City_DAO doctor_dao = new City_DAO();
         List<City> listDoctor = doctor_dao.read();
-        //System.out.println(listAssistance.get(0).getName() + "  " + listAllergy.get(0).getType());
         City doctor = new City(7000,7000,"Mons","Belgique");
         doctor_dao.create(doctor);
-        System.out.println("debut");
+        System.out.println("debut");*/
     }
 
 

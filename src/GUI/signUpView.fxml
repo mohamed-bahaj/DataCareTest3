@@ -17,5 +17,6 @@
       <JFXPasswordField fx:id="fieldPassword2SignUp" focusColor="#2d3447" layoutX="193.0" layoutY="283.0" prefHeight="25.0" prefWidth="215.0" promptText="Confirmer votre mot de passe" />
       <Label fx:id="labelWrong2" layoutX="193.0" layoutY="369.0" textFill="RED" />
       <JFXButton fx:id="buttonSignUpConfirm" buttonType="RAISED" layoutX="193.0" layoutY="337.0" onAction="#addActionLogin2" style="-fx-background-color: #2d3447;" text="Inscription" textFill="#ccb12b" />
+      <JFXButton fx:id="buttonCancel" buttonType="RAISED" layoutX="275.0" layoutY="337.0" onAction="#addActionCancel" style="-fx-background-color: #2d3447;" text="Annuler" textFill="#ccb12b" />
    </children>
 </AnchorPane>

@@ -74,6 +74,17 @@ public class ControlerSignUpView implements Initializable {
     @FXML
     private Label labelWrong2;
 
+
+    @FXML
+    private JFXButton buttonCancel;
+
+    @FXML
+    void addActionCancel(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("sample/sample.fxml"));
+        Parent root = (Parent) loader.load();
+        paneSignUp.getChildren().setAll(root);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {}
 

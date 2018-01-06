@@ -41,7 +41,10 @@ public class ControlerMainView implements Initializable {
             listViewNurse.getItems().add(new Label(listnurse.get(i).getInami() +"  "+ listnurse.get(i).getName() +"  "+ listnurse.get(i).getLastName() ));
         }
 
+
+
         borderPaneMainView.setCenter(listViewNurse);
+
 
         listViewNurse.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

@@ -38,9 +38,6 @@ public class ControlerNurseView implements Initializable{
     private JFXButton buttonSave;
 
     @FXML
-    private JFXButton buttonCancel;
-
-    @FXML
     private JFXButton buttonDelete;
 
     @FXML
@@ -61,6 +58,10 @@ public class ControlerNurseView implements Initializable{
     @FXML
     private Label labelStatut;
 
+
+    @FXML
+    private JFXButton buttonAddNurse;
+
     public void setText(int inami,String name,String lastName,String email,String status){
         this.fieldInami.setText(Integer.toString(inami));
         this.fieldNom.setText(name);
@@ -79,13 +80,15 @@ public class ControlerNurseView implements Initializable{
     }
 
     @FXML
-    void addActionCancel(ActionEvent event) {
+    void addActionDelete(ActionEvent event) {
 
     }
 
     @FXML
-    void addActionDelete(ActionEvent event) {
-
+    void addActionAddNurse(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/signUpView.fxml"));
+        Parent root = (Parent) loader.load();
+        anchorPaneNurse.getChildren().setAll(root);
     }
 
     @FXML
