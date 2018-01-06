@@ -53,11 +53,34 @@ public class Perfusion_DAO extends DAO<Perfusion> {
 
     @Override
     public Perfusion update(Perfusion obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Perfusion SET `Type` =?, `Quantite` = ?, `Temps` = ? WHERE `idPerfusion` = ? ");
+            preparedStatement.setString(1, obj.getType());
+            preparedStatement.setFloat(2, obj.getQuantity());
+            preparedStatement.setFloat(3, obj.getTime());
+            preparedStatement.setInt(4, obj.getId());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Perfusion obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELTE FROM Perfusion WHERE `idPerfusion` = ?");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

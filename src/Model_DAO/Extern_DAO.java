@@ -88,11 +88,34 @@ public class Extern_DAO extends DAO<Extern>{
 
     @Override
     public Extern update(Extern obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Externe SET `Nom`= ?, `Prenom`= ? , `Profession`= ? WHERE `idEXterne`= ?");
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setString(2, obj.getSurname());
+            preparedStatement.setString(3, obj.getWork());
+            preparedStatement.setInt(4, obj.getId());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Extern obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Externe WHERE `idExterne` = ?");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

@@ -48,11 +48,32 @@ public class Allergy_DAO extends DAO<Allergy> {
 
     @Override
     public Allergy update(Allergy obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE allerg_fa SET `Type`=? WHERE `Nom`=?");
+            preparedStatement.setBoolean(1, obj.getType());
+            preparedStatement.setString(2, obj.getName());
+            preparedStatement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Allergy obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM allerg_fa WHERE `Nom`=?");
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.execute();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

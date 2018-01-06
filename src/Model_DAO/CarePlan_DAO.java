@@ -65,11 +65,34 @@ public class CarePlan_DAO extends DAO<CarePlan> {
 
     @Override
     public CarePlan update(CarePlan obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Plan_Soin SET `Date` = ?, ` Commentaire`= ? WHERE `idPlan_soin` = ?");
+            preparedStatement.setDate(1, (java.sql.Date) obj.getDate());
+            preparedStatement.setString(2, obj.getComment());
+            preparedStatement.setInt(3, obj.getId());
+            preparedStatement.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(CarePlan obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Plan_soin WHERE `idPlan_soin` = ? ");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

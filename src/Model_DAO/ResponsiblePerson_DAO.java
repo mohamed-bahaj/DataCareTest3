@@ -56,11 +56,34 @@ public class ResponsiblePerson_DAO extends DAO<ResponsiblePerson> {
 
     @Override
     public ResponsiblePerson update(ResponsiblePerson obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Titulaie SET `Nom` =?, `Prenom`= ?, `Date_naissance` =? WHERE `idTitulaire` = ?");
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setString(2, obj.getSurname());
+            preparedStatement.setDate(3, (java.sql.Date) obj.getBirthday());
+            preparedStatement.setInt(4, obj.getId());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(ResponsiblePerson obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELTE FROM Titulaire WHERE `idTitulaire`= ? ");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

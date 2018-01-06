@@ -53,11 +53,33 @@ public class City_DAO extends DAO<City> {
 
     @Override
     public City update(City obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Ville SET `CP`= ?, `Nom`=?, `Pays`= ? WHERE `idVille`= ?");
+            preparedStatement.setInt(1, obj.getPostalCode());
+            preparedStatement.setString(2, obj.getName());
+            preparedStatement.setString(3, obj.getCountry());
+            preparedStatement.setInt(4, obj.getId());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(City obj) throws Exception {
-
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Ville WHERE `idVille`=?");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

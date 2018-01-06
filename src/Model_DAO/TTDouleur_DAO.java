@@ -56,11 +56,35 @@ public class TTDouleur_DAO extends DAO<TTDouleur> {
 
     @Override
     public TTDouleur update(TTDouleur obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE TT_Douleur SET ´Pousse_seringue´= ? , `Patch_heure_ecart`= ?, `SC` =?, `IM`= ? WHERE `idTT_douleur`= ?");
+            preparedStatement.setBoolean(1, obj.getPousseSeringue());
+            preparedStatement.setFloat(2, obj.getEcartPatch());
+            preparedStatement.setBoolean(3, obj.getSc());
+            preparedStatement.setBoolean(4, obj.getIm());
+            preparedStatement.setInt(5, obj.getId());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(TTDouleur obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM TT_douleur WHERE `idTT_douleur`= ?");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

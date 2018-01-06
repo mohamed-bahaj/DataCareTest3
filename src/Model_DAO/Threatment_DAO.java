@@ -51,6 +51,16 @@ public class Threatment_DAO extends DAO<Threatment> {
 
     @Override
     public void delete(Threatment obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Traitement WHERE `Medicament` =?");
+            preparedStatement.setString(1, obj.getDrug());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

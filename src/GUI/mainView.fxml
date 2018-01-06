@@ -6,31 +6,36 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane fx:id="borderPaneMainView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControlerMainView">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Infirmière">
-            <items>
-              <MenuItem fx:id="buttonVoirInfirmiere" mnemonicParsing="false" onAction="#actionVoirInfirmiere" text="Voir les infirmières" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Médecin">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Voir les médecins" />
-                  <MenuItem mnemonicParsing="false" text="Voir les externes" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Patient">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Voir les patients" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Document">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+  <top>
+    <MenuBar BorderPane.alignment="CENTER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Infirmière">
+          <items>
+            <MenuItem fx:id="buttonVoirInfirmiere" mnemonicParsing="false" onAction="#actionVoirInfirmiere" text="Voir les infirmières" />
+            <MenuItem fx:id="buttonAddNurse" mnemonicParsing="false" onAction="#addActionAddNurse" text="Ajouter une infirmière" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Médecin">
+          <items>
+            <MenuItem fx:id="buttonShowDoctor" mnemonicParsing="false" onAction="#addActionShowDoctor" text="Voir les médecins" />
+            <MenuItem fx:id="buttonAddDoctor" mnemonicParsing="false" onAction="#addActionAddDoctor" text="Ajouter un médecin" />
+            <MenuItem fx:id="buttonShowExtern" mnemonicParsing="false" onAction="#addActionShowExtern" text="Voir les externes" />
+            <MenuItem fx:id="buttonAddExtern" mnemonicParsing="false" onAction="#addActionAddExtern" text="Ajouter un externe" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Patient">
+          <items>
+            <MenuItem fx:id="buttonShowPatient" mnemonicParsing="false" onAction="#addActionShowPatient" text="Voir les patients" />
+            <MenuItem fx:id="buttonAddPatient" mnemonicParsing="false" onAction="#addActionAddPatient" text="Ajouter un patient" />
+            <MenuItem fx:id="buttonAddTreatment" mnemonicParsing="false" onAction="#addActionAddTreatment" text="Ajouter un traitement" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Document">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </top>
 </BorderPane>

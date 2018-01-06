@@ -58,11 +58,34 @@ public class Doctor_DAO extends DAO<Doctor>  {
 
     @Override
     public Doctor update(Doctor obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Medecin SET `Nom` = ?, `Prenom` = ?, `Specialisation` = ? WHERE `Inami` = ?");
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setString(2, obj.getSurname());
+            preparedStatement.setString(3, obj.getSpecialisation());
+            preparedStatement.setInt(4, obj.getInamiNumber());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Doctor obj) throws Exception {
 
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Medecin WHERE `Inami` = ? ");
+            preparedStatement.setInt(1, obj.getInamiNumber());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

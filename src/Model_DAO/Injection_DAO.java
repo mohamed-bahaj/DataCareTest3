@@ -52,6 +52,16 @@ public class Injection_DAO extends DAO<Injection> {
 
     @Override
     public void delete(Injection obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Injection WHERE `Type_injection` = ?");
+            preparedStatement.setString(1, obj.getType());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

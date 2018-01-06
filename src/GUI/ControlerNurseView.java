@@ -1,5 +1,7 @@
 package GUI;
 
+import Model.Nurse;
+import Model_DAO.Nurse_DAO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -80,8 +82,11 @@ public class ControlerNurseView implements Initializable{
     }
 
     @FXML
-    void addActionDelete(ActionEvent event) {
-
+    void addActionDelete(ActionEvent event) throws Exception {
+        Nurse_DAO nurse_dao = new Nurse_DAO();
+        Nurse nurse = new Nurse();
+        nurse.setInami(Integer.parseInt(this.fieldInami.getText()));
+        nurse_dao.delete(nurse);
     }
 
     @FXML
@@ -92,8 +97,15 @@ public class ControlerNurseView implements Initializable{
     }
 
     @FXML
-    void addActionSave(ActionEvent event) {
-
+    void addActionSave(ActionEvent event) throws Exception{
+        Nurse_DAO nurse_dao = new Nurse_DAO();
+        Nurse nurse = new Nurse();
+        nurse.setInami(Integer.parseInt(this.fieldInami.getText()));
+        nurse.setName(this.fieldNom.getText());
+        nurse.setLastName(this.fieldPrénom.getText());
+        nurse.setEmail(this.fieldEmail.getText());
+        nurse.setStatus(this.fieldStatut.getText());
+        nurse_dao.update(nurse);
     }
 
     @Override
