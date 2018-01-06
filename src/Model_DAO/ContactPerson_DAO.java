@@ -54,11 +54,33 @@ public class ContactPerson_DAO extends DAO<ContactPerson> {
 
     @Override
     public ContactPerson update(ContactPerson obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Personne_contact SET `Nom`=?, `Prenom` = ? , `Lien` = ? WHERE `Telephone`= ?");
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setString(2, obj.getSurname());
+            preparedStatement.setString(3, obj.getLink());
+            preparedStatement.setInt(4, obj.getPhonenumber());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(ContactPerson obj) throws Exception {
-
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROME Personne_contact WHERE `Telephone`= ?");
+            preparedStatement.setInt(1, obj.getPhonenumber());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

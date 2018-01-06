@@ -63,11 +63,40 @@ public class Assistance_DAO extends DAO<Assistance> {
 
     @Override
     public Assistance update(Assistance obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Assistance set `Toilette` = ?, `Alimentation` = ? , `Medication`= ?, `Prepa_medi_cass` = ? , `Elimination` = ? , `Protect_anatom` = ? ,`Friction`= ? , `Pansement` = ? WHERE `idAssistance` = ? ");
+            preparedStatement.setBoolean(1, obj.getToilet());
+            preparedStatement.setBoolean(2, obj.getAlimentation());
+            preparedStatement.setBoolean(3, obj.getMedication());
+            preparedStatement.setBoolean(4, obj.getMedication());
+            preparedStatement.setBoolean(5, obj.getPreparationMD());
+            preparedStatement.setBoolean(6, obj.getAnatomicProtections());
+            preparedStatement.setBoolean(7, obj.getFrictions());
+            preparedStatement.setBoolean(8, obj.getSticking());
+            preparedStatement.setInt(9, obj.getId());
+            preparedStatement.executeUpdate();
+
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Assistance obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Assistance WHERE `idAssistance`=?");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

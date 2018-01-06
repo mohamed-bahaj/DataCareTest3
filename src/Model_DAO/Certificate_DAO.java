@@ -62,11 +62,36 @@ public class Certificate_DAO extends DAO<Certificate> {
 
     @Override
     public Certificate update(Certificate obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Certificat SET `Type` = ? , `Date_debut`= ?, `Duree`= ?, `Heure`= ?, `Date_prescription` = ? WHERE `idCertificat`= ? ");
+            preparedStatement.setBoolean(1, obj.getTypeCare());
+            preparedStatement.setDate(2, (java.sql.Date) obj.getStartingDate());
+            preparedStatement.setDate(3, (java.sql.Date) obj.getDuration());
+            preparedStatement.setFloat(4, obj.getTime());
+            preparedStatement.setDate(5, (java.sql.Date) obj.getDatePrescription());
+            preparedStatement.setInt(6, obj.getNumber());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Certificate obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Certificat WHERE `idCertificat` = ?");
+            preparedStatement.setInt(1, obj.getNumber());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

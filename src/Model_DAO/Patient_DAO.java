@@ -70,11 +70,41 @@ public class Patient_DAO extends DAO<Patient> {
 
     @Override
     public Patient update(Patient obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE Patient SET `Nom` = ?, `Prenom`= ?, `Sexe` = ?, `Date_naissance` =?, `Telephone`=?, `Type_soin`= ?, `Ant_med_chir` = ?, `Regime`= ? , `Situation_familiale`=?, `Dependance`=?  WHERE `idPatient` = ?");
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setString(2, obj.getSurname());
+            preparedStatement.setBoolean(3, obj.getGender());
+            preparedStatement.setDate(4, (java.sql.Date) obj.getBirthday());
+            preparedStatement.setInt(5, obj.getPhoneNumber());
+            preparedStatement.setBoolean(6, obj.isTypeCare());
+            preparedStatement.setString(7, obj.getMedicalBackGround());
+            preparedStatement.setString(8, obj.getDiet());
+            preparedStatement.setString(9, obj.getFamilySituation());
+            preparedStatement.setString(10, obj.getDependance());
+            preparedStatement.setInt(11, obj.getId());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Patient obj) throws Exception {
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM Patient WHERE `idPatient` = ?");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }

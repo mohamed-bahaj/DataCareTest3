@@ -56,11 +56,35 @@ public class Adress_DAO extends DAO<Adress> {
 
     @Override
     public Adress update(Adress obj) throws Exception {
+
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("UPDATE adresse SET `Rue`= ?, `Numero`= ?, `Boite`= ? WHERE `idAdresse`= ?");
+            preparedStatement.setString(1, obj.getStreet());
+            preparedStatement.setInt(2, obj.getNumber());
+            preparedStatement.setString(3, obj.getBox());
+            preparedStatement.setInt(4, obj.getId());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void delete(Adress obj) throws Exception {
-
+        try
+        {
+            PreparedStatement preparedStatement = connect.prepareStatement("DELETE FROM `adresse` WHERE `idAdresse`= ?");
+            preparedStatement.setInt(1, obj.getId());
+            preparedStatement.execute();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
