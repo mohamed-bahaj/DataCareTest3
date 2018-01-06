@@ -74,8 +74,10 @@ public class ControlerMainView implements Initializable {
     }
 
     @FXML
-    void addActionAddPatient(ActionEvent event) {
-
+    void addActionAddPatient(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/patientAddView.fxml"));
+        Parent root = (Parent) loader.load();
+        borderPaneMainView.getChildren().setAll(root);
     }
 
     @FXML

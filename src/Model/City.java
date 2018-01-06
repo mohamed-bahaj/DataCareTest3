@@ -24,8 +24,8 @@ public class    City {
      */
     public City(){}
 
-    public City(int id, int postalCode, String name, String country) {
-        this.id = id;
+    public City(int postalCode, String name, String country) {
+        //this.id = id;
         this.postalCode = postalCode;
         this.name = name;
         this.country = country;

@@ -26,9 +26,9 @@ public class Adress {
 
     public Adress(){}
 
-    public Adress(int id, String street, int number, String box, int idVille) {
+    public Adress(String street, int number, String box, int idVille) {
 
-        this.id = id;
+        //this.id = id;
         this.street = street;
         this.number = number;
         this.box = box;

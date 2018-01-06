@@ -27,7 +27,6 @@
           <items>
             <MenuItem fx:id="buttonShowPatient" mnemonicParsing="false" onAction="#addActionShowPatient" text="Voir les patients" />
             <MenuItem fx:id="buttonAddPatient" mnemonicParsing="false" onAction="#addActionAddPatient" text="Ajouter un patient" />
-            <MenuItem fx:id="buttonAddTreatment" mnemonicParsing="false" onAction="#addActionAddTreatment" text="Ajouter un traitement" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Document">

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPaneAddPatient" prefHeight="546.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControlerPatientAdd">
+   <children>
+      <JFXTextField fx:id="fieldNom" layoutX="46.0" layoutY="35.0" prefHeight="25.0" prefWidth="164.0" promptText="Nom" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="35.0" />
+      <JFXTextField fx:id="fieldPrenom" layoutX="46.0" layoutY="77.0" prefHeight="25.0" prefWidth="164.0" promptText="Prénom" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="75.0" />
+      <JFXComboBox fx:id="comboBoxSexe" layoutX="46.0" layoutY="120.0" prefHeight="25.0" prefWidth="164.0" promptText="Sexe" visibleRowCount="2" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="115.0" />
+      <JFXDatePicker fx:id="dateDateDeNaissance" layoutX="46.0" layoutY="151.0" promptText="Date de naissance" AnchorPane.topAnchor="155.0" />
+      <JFXTextField fx:id="fieldTelephone" layoutX="46.0" layoutY="188.0" prefHeight="25.0" prefWidth="164.0" promptText="Numéro de téléphone" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="195.0" />
+      <JFXComboBox fx:id="comboBoxTypeSoin" layoutX="46.0" layoutY="223.0" prefHeight="25.0" prefWidth="164.0" promptText="Type de soin" AnchorPane.leftAnchor="46.0" AnchorPane.topAnchor="235.0" />
+      <JFXTextArea fx:id="fieldMedicalBackground" layoutX="338.0" layoutY="31.0" prefHeight="59.0" prefWidth="216.0" promptText="Antécédents médicaux" />
+      <JFXTextArea fx:id="fieldRegime" layoutX="338.0" layoutY="111.0" prefHeight="59.0" prefWidth="216.0" promptText="Régime" />
+      <JFXTextField fx:id="fieldFamille" layoutX="338.0" layoutY="195.0" promptText="Situation familiale" />
+      <JFXTextField fx:id="fieldDependance" layoutX="338.0" layoutY="235.0" promptText="Dépendance" />
+      <Label layoutX="24.0" layoutY="4.0" text="Informations générales">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="280.0" text="Adresse">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="fieldPays" layoutX="46.0" layoutY="314.0" promptText="Pays" />
+      <JFXTextField fx:id="fieldVille" layoutX="233.0" layoutY="314.0" promptText="Ville" />
+      <JFXTextField fx:id="fieldCP" layoutX="419.0" layoutY="314.0" promptText="Code Postal" />
+      <JFXTextField fx:id="fieldRue" layoutX="46.0" layoutY="355.0" promptText="Rue" />
+      <JFXTextField fx:id="fieldNumero" layoutX="233.0" layoutY="355.0" promptText="Numéro" />
+      <JFXTextField fx:id="fieldBoite" layoutX="419.0" layoutY="355.0" promptText="Boite" />
+      <JFXButton fx:id="buttonAddPatient" layoutX="132.0" layoutY="437.0" onAction="#addActionAddPatient" style="-fx-background-color: #2d3447;" text="Ajouter" textFill="#ccb12b">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

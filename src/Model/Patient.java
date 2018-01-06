@@ -19,8 +19,8 @@ public class Patient {
 
     public Patient(){}
 
-    public Patient(int id, String name, String surname, boolean gender, Date birthday, int phoneNumber, boolean typeCare, String medicalBackGround, String diet, String familySituation, String dependance, int idAdress) {
-        this.id = id;
+    public Patient(String name, String surname, boolean gender, Date birthday, int phoneNumber, boolean typeCare, String medicalBackGround, String diet, String familySituation, String dependance, int idAdress) {
+        //this.id = id;
         this.name = name;
         this.surname = surname;
         this.gender = gender;
