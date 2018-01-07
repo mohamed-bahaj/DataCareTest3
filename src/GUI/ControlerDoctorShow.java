@@ -65,8 +65,14 @@ public class ControlerDoctorShow implements Initializable{
     }
 
     @FXML
-    void addActionSave(ActionEvent event) {
-
+    void addActionSave(ActionEvent event) throws Exception {
+        Doctor_DAO doctor_dao = new Doctor_DAO();
+        Doctor doctor = new Doctor();
+        doctor.setInamiNumber(Integer.parseInt(this.fieldInami.getText()));
+        doctor.setName(this.fieldName.getText());
+        doctor.setSurname(this.fieldSurname.getText());
+        doctor.setSpecialisation(this.fieldSpecialisation.getText());
+        doctor_dao.update(doctor);
     }
 
 

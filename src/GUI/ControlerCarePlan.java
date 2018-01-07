@@ -70,8 +70,10 @@ public class ControlerCarePlan implements Initializable {
 
     @FXML
     void addActionAddCare(ActionEvent event) {
-
+        
     }
+
+
 
 
     @Override

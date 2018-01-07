@@ -89,12 +89,6 @@ public class ControlerNurseView implements Initializable{
         nurse_dao.delete(nurse);
     }
 
-    @FXML
-    void addActionAddNurse(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/signUpView.fxml"));
-        Parent root = (Parent) loader.load();
-        anchorPaneNurse.getChildren().setAll(root);
-    }
 
     @FXML
     void addActionSave(ActionEvent event) throws Exception{

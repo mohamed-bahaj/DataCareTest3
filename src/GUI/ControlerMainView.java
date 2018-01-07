@@ -62,6 +62,12 @@ public class ControlerMainView implements Initializable {
     private MenuItem buttonAddTreatment;
 
     @FXML
+    private MenuItem buttonPlanCare;
+
+    @FXML
+    private MenuItem buttonCertificate;
+
+    @FXML
     void addActionAddDoctor(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/DoctorAddView.fxml"));
         Parent root = (Parent) loader.load();
@@ -80,11 +86,6 @@ public class ControlerMainView implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/patientAddView.fxml"));
         Parent root = (Parent) loader.load();
         borderPaneMainView.getChildren().setAll(root);
-    }
-
-    @FXML
-    void addActionAddTreatment(ActionEvent event) {
-
     }
 
     @FXML
@@ -227,6 +228,20 @@ public class ControlerMainView implements Initializable {
     @FXML
     void addActionAddNurse(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/signUpView.fxml"));
+        Parent root = (Parent) loader.load();
+        borderPaneMainView.getChildren().setAll(root);
+    }
+
+    @FXML
+    void addActionCertificate(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/CertificateView.fxml"));
+        Parent root = (Parent) loader.load();
+        borderPaneMainView.getChildren().setAll(root);
+    }
+
+    @FXML
+    void addActionPlanCare(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/carePlanView.fxml"));
         Parent root = (Parent) loader.load();
         borderPaneMainView.getChildren().setAll(root);
     }

@@ -31,8 +31,7 @@ public class CarePlan {
     private int nurseInami;
     public CarePlan(){}
 
-    public CarePlan(int id, Date date, String comment, String injection, int idPerfusion, int idAssistance, int idWoundSurveillance, int idTTDouleur, int nurseInami) {
-        this.id = id;
+    public CarePlan( Date date, String comment, String injection, int idPerfusion, int idAssistance, int idWoundSurveillance, int idTTDouleur, int nurseInami) {
         this.date = date;
         this.comment = comment;
         this.injection = injection;

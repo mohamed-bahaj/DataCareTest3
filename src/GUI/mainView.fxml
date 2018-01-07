@@ -31,7 +31,8 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Document">
           <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem fx:id="buttonPlanCare" mnemonicParsing="false" onAction="#addActionPlanCare" text="Plan de soins" />
+                  <MenuItem fx:id="buttonCertificate" mnemonicParsing="false" onAction="#addActionCertificate" text="Certificat" />
           </items>
         </Menu>
       </menus>

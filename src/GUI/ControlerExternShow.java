@@ -1,5 +1,7 @@
 package GUI;
 
+import Model.Extern;
+import Model_DAO.Extern_DAO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -56,13 +58,22 @@ public class ControlerExternShow implements Initializable {
     }
 
     @FXML
-    void addActionDelete(ActionEvent event) {
-
+    void addActionDelete(ActionEvent event) throws Exception {
+        Extern_DAO extern_dao = new Extern_DAO();
+        Extern extern = new Extern();
+        extern.setId(Integer.parseInt(this.fieldID.getText()));
+        extern_dao.delete(extern);
     }
 
     @FXML
-    void addActionSave(ActionEvent event) {
-
+    void addActionSave(ActionEvent event) throws Exception {
+        Extern_DAO extern_dao = new Extern_DAO();
+        Extern extern = new Extern();
+        extern.setId(Integer.parseInt(this.fieldID.getText()));
+        extern.setName(this.fieldName.getText());
+        extern.setSurname(this.fieldLastName.getText());
+        extern.setWork(this.fieldWork.getText());
+        extern_dao.update(extern);
     }
 
 

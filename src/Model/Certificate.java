@@ -15,8 +15,7 @@ public class Certificate {
 
     public Certificate(){}
 
-    public Certificate(int number, boolean typeCare, Date startingDate, float duration, float time, Date datePrescription, int doctorInami, int idPatient) {
-        this.number = number;
+    public Certificate(boolean typeCare, Date startingDate, float duration, float time, Date datePrescription, int doctorInami, int idPatient) {
         this.typeCare = typeCare;
         this.startingDate = startingDate;
         this.duration = duration;
