@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
-<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
@@ -25,9 +24,7 @@
       <JFXComboBox fx:id="comboInjection" focusColor="#ccb12b" layoutX="41.0" layoutY="325.0" prefHeight="31.0" prefWidth="127.0" promptText="Injection" />
       <Label layoutX="363.0" layoutY="54.0" prefHeight="21.0" prefWidth="234.0" textFill="#f80000" />
       <JFXTextField editable="false" focusColor="#ccb12b" layoutX="47.0" layoutY="111.0" prefHeight="31.0" prefWidth="127.0" text="Assistance" />
-      <JFXTextField focusColor="#ccb12b" layoutX="190.0" layoutY="111.0" prefHeight="31.0" prefWidth="55.0" text="Toilette" />
-      <JFXRadioButton fx:id="radioBed" layoutX="262.0" layoutY="116.0" text="lit" />
-      <JFXRadioButton fx:id="radioBassin" layoutX="332.0" layoutY="116.0" text="lavabo" />
+      <JFXTextField focusColor="#ccb12b" layoutX="190.0" layoutY="111.0" prefHeight="31.0" prefWidth="94.0" text="Toilette" />
       <JFXToggleButton fx:id="toggleAlimentation" layoutX="286.0" layoutY="144.0" prefHeight="60.0" prefWidth="18.0" text=" " toggleColor="#ccb12b" />
       <JFXTextField editable="false" layoutX="190.0" layoutY="158.0" prefHeight="31.0" prefWidth="94.0" text="Alimentation" />
       <JFXTextField editable="false" layoutX="190.0" layoutY="201.0" prefHeight="31.0" prefWidth="94.0" text="Médication" />
@@ -48,5 +45,7 @@
       <JFXTextField fx:id="fieldTime" focusColor="#ccb12b" layoutX="406.0" layoutY="389.0" prefHeight="31.0" prefWidth="94.0" promptText="Temps" />
       <JFXComboBox fx:id="comboTTDouleur" focusColor="#ccb12b" layoutX="222.0" layoutY="328.0" promptText="TT Douleur" />
       <JFXButton fx:id="buttonAddCare" layoutX="383.0" layoutY="29.0" onAction="#addActionAddCare" prefHeight="31.0" prefWidth="169.0" ripplerFill="#ccb12b" style="-fx-background-color: #2d3447;" text="Ajouter un soin" textFill="#ccb12b" />
+      <JFXButton fx:id="buttonBack" layoutX="516.0" layoutY="438.0" onAction="#addActionBack" prefHeight="31.0" prefWidth="66.0" ripplerFill="#ccb12b" style="-fx-background-color: #2d3447;" text="Retour" textFill="#ccb12b" />
+      <JFXToggleButton fx:id="toggleToilet" layoutX="286.0" layoutY="100.0" prefHeight="60.0" prefWidth="18.0" text=" " toggleColor="#ccb12b" />
    </children>
 </AnchorPane>

@@ -29,6 +29,7 @@ public class CarePlan_DAO extends DAO<CarePlan> {
                 carePlan.setIdAssistance(rs.getInt("Assistance_idAssistance"));
                 carePlan.setIdWoundSurveillance(rs.getInt("Surveillance_plaie_idSurveillance_plaie"));
                 carePlan.setIdTTDouleur(rs.getInt("TT_douleur_idTT_douleur"));
+                carePlan.setIdPatient(rs.getInt("Patient_idPatient"));
                 carePlan.setNurseInami(rs.getInt("Infirmiere_Inami"));
 
                 listCarePlan.add(carePlan);
@@ -45,7 +46,7 @@ public class CarePlan_DAO extends DAO<CarePlan> {
     @Override
     public void create(CarePlan obj) throws Exception {
         try {
-            PreparedStatement prepare = connect.prepareStatement("INSERT INTO plan_soin(idPlan_soin,Date,Commentaire,Injection_Type_injection,Perfusion_idPerfusion, Assistance_idAssistance, Surveillance_plaie_idSurveillance_plaie, TT_douleur_idTT_douleur,Infirmiere_Inami) VALUES(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO plan_soin(idPlan_soin,Date,Commentaire,Injection_Type_injection,Perfusion_idPerfusion, Assistance_idAssistance, Surveillance_plaie_idSurveillance_plaie, TT_douleur_idTT_douleur,Patient_idPatient,Infirmiere_Inami) VALUES(?,?,?,?,?,?,?,?,?,?)");
             prepare.setInt(1, obj.getId());
             prepare.setDate(2,  obj.getDate());
             prepare.setString(3,obj.getComment());
@@ -54,7 +55,8 @@ public class CarePlan_DAO extends DAO<CarePlan> {
             prepare.setInt(6, obj.getIdAssistance());
             prepare.setInt(7, obj.getIdWoundSurveillance() );
             prepare.setInt(8, obj.getIdTTDouleur());
-            prepare.setInt(9, obj.getNurseInami());
+            prepare.setInt(9, obj.getIdPatient());
+            prepare.setInt(10, obj.getNurseInami());
             prepare.executeUpdate();
             prepare.close();
         } catch (SQLException e) {

@@ -29,9 +29,10 @@ public class CarePlan {
     private int idWoundSurveillance;
     private int idTTDouleur;
     private int nurseInami;
+    private int idPatient;
     public CarePlan(){}
 
-    public CarePlan( Date date, String comment, String injection, int idPerfusion, int idAssistance, int idWoundSurveillance, int idTTDouleur, int nurseInami) {
+    public CarePlan( Date date, String comment, String injection, int idPerfusion, int idAssistance,int idWoundSurveillance,int idTTDouleur, int idPatient,int nurseInami) {
         this.date = date;
         this.comment = comment;
         this.injection = injection;
@@ -39,6 +40,7 @@ public class CarePlan {
         this.idAssistance = idAssistance;
         this.idWoundSurveillance = idWoundSurveillance;
         this.idTTDouleur = idTTDouleur;
+        this.idPatient=idPatient;
         this.nurseInami = nurseInami;
     }
 
@@ -124,5 +126,13 @@ public class CarePlan {
 
     public void setNurseInami(int nurseInami) {
         this.nurseInami = nurseInami;
+    }
+
+    public int getIdPatient() {
+        return idPatient;
+    }
+
+    public void setIdPatient(int idPatient) {
+        this.idPatient = idPatient;
     }
 }

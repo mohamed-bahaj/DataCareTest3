@@ -69,7 +69,7 @@ public class ControlerCertificate implements Initializable {
         Date start = Date.valueOf(dateDebut.getValue());
         Date datePresc = Date.valueOf(datePrescription.getValue());
 
-        Certificate certificate = new Certificate(soin, start, Float.parseFloat(fieldDuration.getText()), Float.parseFloat(fieldTime.getText()), datePresc, Integer.parseInt(fieldDoctor.getText()), 2);
+        Certificate certificate = new Certificate(soin, start, Float.parseFloat(fieldDuration.getText()), Float.parseFloat(fieldTime.getText()), datePresc, Integer.parseInt(fieldDoctor.getText()), 1);
         certificate_dao.create(certificate);
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/mainView.fxml"));
         Parent root = (Parent) loader.load();
