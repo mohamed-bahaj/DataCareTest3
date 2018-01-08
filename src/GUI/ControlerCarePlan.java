@@ -1,13 +1,7 @@
 package GUI;
 
-import Model.Assistance;
-import Model.CarePlan;
-import Model.Injection;
-import Model.Perfusion;
-import Model_DAO.Assistance_DAO;
-import Model_DAO.CarePlan_DAO;
-import Model_DAO.Injection_DAO;
-import Model_DAO.Perfusion_DAO;
+import Model.*;
+import Model_DAO.*;
 import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -145,10 +139,11 @@ public class ControlerCarePlan implements Initializable {
             }
         }
 
-
+        Nurse_DAO nurse_dao = new Nurse_DAO();
+        List<Nurse> nurseList = nurse_dao.read();
         CarePlan_DAO carePlan_dao = new CarePlan_DAO();
         Date date = Date.valueOf(dateCarePlanPicker.getValue());
-        CarePlan carePlan = new CarePlan(date, fieldComment.getText(), injection.getType(), perfusion.getId(), assistance.getId(),1,1,1, 12345);
+        CarePlan carePlan = new CarePlan(date, fieldComment.getText(), injection.getType(), perfusion.getId(), assistance.getId(),1,1,1, nurseList.get(0).getInami());
         carePlan_dao.create(carePlan);
     }
 

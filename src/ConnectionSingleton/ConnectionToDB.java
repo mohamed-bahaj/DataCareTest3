@@ -11,8 +11,6 @@ public class ConnectionToDB {
     private static String password = "ltaPMP124@";
     private static Connection connect;
 
-
-
     public static Connection getInstance(){
         if(connect==null){
             try {

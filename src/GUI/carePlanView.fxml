@@ -43,7 +43,6 @@
       <JFXComboBox fx:id="comboTypePerfusion" focusColor="#ccb12b" layoutX="406.0" layoutY="325.0" prefHeight="31.0" prefWidth="94.0" promptText="Type" />
       <JFXTextField fx:id="fieldQuantity" focusColor="#ccb12b" layoutX="406.0" layoutY="353.0" prefHeight="31.0" prefWidth="94.0" promptText="Quantité" />
       <JFXTextField fx:id="fieldTime" focusColor="#ccb12b" layoutX="406.0" layoutY="389.0" prefHeight="31.0" prefWidth="94.0" promptText="Temps" />
-      <JFXComboBox fx:id="comboTTDouleur" focusColor="#ccb12b" layoutX="222.0" layoutY="328.0" promptText="TT Douleur" />
       <JFXButton fx:id="buttonAddCare" layoutX="383.0" layoutY="29.0" onAction="#addActionAddCare" prefHeight="31.0" prefWidth="169.0" ripplerFill="#ccb12b" style="-fx-background-color: #2d3447;" text="Ajouter un soin" textFill="#ccb12b" />
       <JFXButton fx:id="buttonBack" layoutX="516.0" layoutY="438.0" onAction="#addActionBack" prefHeight="31.0" prefWidth="66.0" ripplerFill="#ccb12b" style="-fx-background-color: #2d3447;" text="Retour" textFill="#ccb12b" />
       <JFXToggleButton fx:id="toggleToilet" layoutX="286.0" layoutY="100.0" prefHeight="60.0" prefWidth="18.0" text=" " toggleColor="#ccb12b" />

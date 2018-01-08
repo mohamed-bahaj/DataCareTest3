@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="anchorPaneNurse" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControlerNurseView">
    <children>
-      <JFXTextField fx:id="fieldInami" focusColor="#2d3447" layoutX="122.0" layoutY="48.0" AnchorPane.topAnchor="48.0" />
+      <JFXTextField fx:id="fieldInami" editable="false" focusColor="#2d3447" layoutX="122.0" layoutY="48.0" AnchorPane.topAnchor="48.0" />
       <JFXTextField fx:id="fieldNom" focusColor="#2d3447" layoutX="122.0" layoutY="73.0" AnchorPane.topAnchor="98.0" />
       <JFXTextField fx:id="fieldPrénom" focusColor="#2d3447" layoutX="122.0" layoutY="149.0" AnchorPane.topAnchor="148.0" />
       <JFXTextField fx:id="fieldEmail" focusColor="#2d3447" layoutX="122.0" layoutY="200.0" AnchorPane.topAnchor="198.0" />
